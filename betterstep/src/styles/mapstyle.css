@@ -1,40 +1,14 @@
-:root {
-  --font-main: 'Hind Madurai', sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  min-height: 100vh;
-  max-width: 100vw;
-  overflow-x: hidden;
-  font-family: var(--font-main);
-}
-
-#__next {
-  min-height: 100vh;
-  width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-.map {
-  height: 100vh;
-  width: 100vw;
-}
-
 .map-container {
   width: 100%;
   height: 600px;
 }
 
+.map {
+  background-color: red;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
 .marker {
   background-color: #517873;
   border-radius: 10px;
