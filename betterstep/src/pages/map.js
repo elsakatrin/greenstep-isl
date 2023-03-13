@@ -1,11 +1,13 @@
 /* eslint-disable no-undef */
 /* global google */
 // import { useLoadScript, GoogleMap, MarkerF } from '@react-google-maps/api'
+// import { createRoot } from 'react-dom/client'
+import useSWR from 'swr'
 import { Wrapper, Status } from '@googlemaps/react-wrapper'
 import positionConverter from '@/utils/positionConverter'
-import { createRoot } from 'react-dom/client'
+import Marker from '@/components/Marker/Marker'
+import MarkerTooltip from '@/components/MarkerTooltip/MarkerTooltip'
 import React from 'react'
-
 
 const center = {
     lat: 28.133592,
@@ -110,62 +112,6 @@ function LocationPin({ map }) {
         </>
     )
 }
-
-// creates custom marker
-function Marker({ map, children, position, onClick }) {
-    const markerRef = React.useRef()
-    const rootRef = React.useRef()
-
-    React.useEffect(() => {
-        if (!rootRef.current) {
-            const container = document.createElement('div')
-            rootRef.current = createRoot(container)
-            markerRef.current = new google.maps.marker.AdvancedMarkerView({
-                position,
-                content: container,
-            })
-        }
-    }, [])
-
-    React.useEffect(() => {
-        rootRef.current.render(children)
-        markerRef.current.position = position
-        markerRef.current.map = map
-        const listener = markerRef.current.addListener('click', onClick)
-        return () => listener.remove()
-    }, [map, position, children])
-}
-
-// custom marker tooltip
-function MarkerTooltip({ marker, close, accept }) {
-    return (
-        <div className="opened-marker">
-            <h2>{marker.name}</h2>
-            <p>{marker.quest}</p>
-            <div className="buttonbox">
-                <button onClick={() => accept()}>Accept Quest</button>
-                <button onClick={() => close()}>Decline Quest</button>
-            </div>
-        </div>
-    )
-}
-
-// active quest
-function ActiveQuest({ quest, close }) {
-    return (
-        <div className="opened-marker">
-            <h2>Go finish this quest!</h2>
-            <p>{quest.name}</p>
-            <p>{quest.quest}. Points: 4</p>
-            <div className="buttonbox">
-                <button>Complete quest</button>
-                <button onClick={() => close()}>Stop quest</button>
-            </div>
-        </div>
-    )
-}
-
-
 
 
 // Dummy data

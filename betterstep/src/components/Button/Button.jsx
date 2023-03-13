@@ -1,5 +1,4 @@
 import './button.css'
-
 const Button = ({ children, onClick }) => {
   return (
     <button className="button" onClick={onClick}>

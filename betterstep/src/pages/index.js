@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic'
 import Map from '@/components/Map/Map'
 import { useLoadScript } from '@react-google-maps/api'
 
+import SignUpForm from '@/components/SignUpForm/SignUpForm'
+
 
 export default function Home() {
   const { isLoaded, loadError } = useLoadScript({
@@ -22,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Map />
+        <SignUpForm />
       </main>
     </>
   )
