@@ -14,9 +14,6 @@ import Spinner from '@/components/Spinner/Spinner'
 
 
 export default function Map() {
-
-
-
     return (
         <Wrapper
             apiKey={process.env.NEXT_PUBLIC_API_KEY}
@@ -60,7 +57,6 @@ function MyMap() {
         const myLocation = async () => {
             const loc = await getCurrentLocation()
             setMapOptions({ ...mapOptions, center: loc })
-            console.log(loc)
         }
         myLocation()
     }, [])
@@ -80,9 +76,10 @@ function MyMap() {
 // create markers (should not have been named LocationPin maybe) LocationPin takes an arg of which map
 function LocationPin({ map }) {
     const [data, setData] = React.useState(myPins)
-
+    const image =
+        "https://api.iconify.design/svg-spinners:pulse-2.svg"
     function handleClick(e) {
-        alert(e.domEvent.target.about)
+        console.log(e)
 
 
     }
@@ -90,11 +87,12 @@ function LocationPin({ map }) {
     return (
         <>
             {Object.entries(data).map(([key, marker]) => {
-                console.log(marker)
+                // console.log(marker)
                 return <Marker
                     key={key}
                     map={map}
-                    about='This text is about this marker'
+                    icon={image}
+                    about={marker.about}
                     position={marker.position}
                     onClick={handleClick}
                 />
@@ -108,15 +106,19 @@ function LocationPin({ map }) {
 // Dummy data
 const myPins = {
     A: {
-        position: { lat: 28.135455904357823, lng: -15.437538995216169 }
+        position: { lat: 28.135455904357823, lng: -15.437538995216169 },
+        about: "This is something about it"
     },
     B: {
-        position: { lat: 28.13281780589826, lng: -15.43693520966055 }
+        position: { lat: 28.13281780589826, lng: -15.43693520966055 },
+        about: "This is something about it too"
     },
     C: {
-        position: { lat: 28.13471652661439, lng: -15.436669506356887 }
+        position: { lat: 28.13471652661439, lng: -15.436669506356887 },
+        about: "This is something about it three?"
     },
     D: {
-        position: positionConverter(28.131671872339304, -15.43437819099297)
+        position: positionConverter(28.131671872339304, -15.43437819099297),
+        about: "This is something about it four"
     },
 }

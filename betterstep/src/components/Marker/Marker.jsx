@@ -10,7 +10,7 @@ export default function Marker({
   position,
   onClick,
   about,
-  animation,
+  icon,
 }) {
   const markerRef = React.useRef()
   const rootRef = React.useRef()
@@ -23,6 +23,7 @@ export default function Marker({
         position,
         map,
         about,
+        icon,
         animation: google.maps.Animation.DROP,
       })
     }
