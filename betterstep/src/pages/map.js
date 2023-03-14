@@ -76,8 +76,6 @@ function MyMap() {
 // create markers (should not have been named LocationPin maybe) LocationPin takes an arg of which map
 function LocationPin({ map }) {
     const [data, setData] = React.useState(myPins)
-    const image =
-        "https://api.iconify.design/bi:pin-map-fill.svg"
     function handleClick(e) {
         console.log(e)
 
