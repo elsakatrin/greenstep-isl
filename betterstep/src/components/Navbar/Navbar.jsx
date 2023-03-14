@@ -1,18 +1,19 @@
 import styles from './Navbar.module.css'
 import Link from 'next/link'
+import Button from '../Button/Button'
 
 export default function Navbar() {
   return (
     <div className={styles.navbarWrapper}>
       <nav className={styles.navigation}>
         <Link href="/map">
-          <button>Map</button>
+          <Button>Back</Button>
         </Link>
         <Link href="/about">
-          <button>About</button>
+          <Button>About</Button>
         </Link>
         <Link href="/user">
-          <button>User</button>
+          <Button>User</Button>
         </Link>
       </nav>
     </div>

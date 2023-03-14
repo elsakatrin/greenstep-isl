@@ -1,6 +1,15 @@
 :root {
   --font-main: 'Hind Madurai', sans-serif;
   --box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+  --color-prim-green: #627573;
+  --color-prim-faded: #cbd0cf;
+  --color-second-pale: #e5e8e7;
+  --color-second-orange: #dc715f;
+  --color-black: #000;
+  --color-white: #fff;
+  --border-radius: 20px;
+  --border-buttons: 3px solid #627573;
+  --border-modals: 3px solid #e7eaea;
 }
 
 * {
