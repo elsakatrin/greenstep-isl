@@ -11,6 +11,9 @@ export default function Navbar() {
         <Link href="/about">
           <button>About</button>
         </Link>
+        <Link href="/user">
+          <button>User</button>
+        </Link>
       </nav>
     </div>
   )

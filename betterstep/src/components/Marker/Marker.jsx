@@ -9,6 +9,7 @@ export default function Marker({
   children,
   position,
   onClick,
+  about,
   animation,
 }) {
   const markerRef = React.useRef()
@@ -21,6 +22,7 @@ export default function Marker({
       markerRef.current = new window.google.maps.Marker({
         position,
         map,
+        about,
         animation: google.maps.Animation.DROP,
       })
     }
@@ -30,7 +32,8 @@ export default function Marker({
     rootRef.current.render(children)
     markerRef.current.position = position
     markerRef.current.map = map
+    markerRef.current.about = about
     const listener = markerRef.current.addListener('click', onClick)
     return () => listener.remove()
-  }, [map, position, children])
+  }, [map, position, children, about])
 }

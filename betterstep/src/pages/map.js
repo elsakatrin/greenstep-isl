@@ -5,9 +5,10 @@ import { Wrapper, Status } from '@googlemaps/react-wrapper'
 import positionConverter from '@/utils/positionConverter'
 import Marker from '@/components/Marker/Marker'
 import MarkerTooltip from '@/components/MarkerTooltip/MarkerTooltip'
+import Navbar from '@/components/Navbar/Navbar'
 import React from 'react'
 import getCurrentLocation from '@/utils/getCurrentLocation'
-
+import Spinner from '@/components/Spinner/Spinner'
 
 
 
@@ -32,11 +33,15 @@ export default function Map() {
 const render = (status) => {
     switch (status) {
         case Status.LOADING:
-            return <h1>Loading spinner</h1>;
+            return <Spinner />;
         case Status.FAILURE:
             return <h1>Failure message</h1>;
         case Status.SUCCESS:
-            return <MyMap />;
+            return (
+                <>
+                    <MyMap />
+                    <Navbar />
+                </>);
     }
 };
 
@@ -76,18 +81,8 @@ function MyMap() {
 function LocationPin({ map }) {
     const [data, setData] = React.useState(myPins)
 
-    React.useEffect(() => {
-        const setNewPins = setTimeout(() => {
-            let newPins = { ...myPins, E: { position: { lat: 28.139148, lng: -15.435599 } } }
-            setData(newPins)
-        }, 3000)
-        return () => {
-            clearTimeout(setNewPins)
-        }
-    }, [])
-
     function handleClick(e) {
-        console.log(e.domEvent.target)
+        alert(e.domEvent.target.about)
 
 
     }
@@ -99,6 +94,7 @@ function LocationPin({ map }) {
                 return <Marker
                     key={key}
                     map={map}
+                    about='This text is about this marker'
                     position={marker.position}
                     onClick={handleClick}
                 />
