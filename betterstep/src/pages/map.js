@@ -43,47 +43,49 @@ const render = (status) => {
 };
 
 function MyMap() {
-    const [map, setMap] = React.useState()
+    const [map, setMap] = React.useState() // map to render and render to
     const [mapOptions, setMapOptions] = React.useState({
         mapId: '1cdc7a504e15f689',
         center: { lat: 0, lng: 0 },
         zoom: 13,
         disableDefaultUI: true,
-    })
+    }) // map options
+    const [loc, setLoc] = React.useState() // current user location
 
     const ref = React.useRef()
 
     React.useEffect(() => {
         const myLocation = async () => {
-            const loc = await getCurrentLocation()
-            setMapOptions({ ...mapOptions, center: loc })
+            let newLoc = await getCurrentLocation()
+            setLoc(newLoc)
+            setMapOptions({ ...mapOptions, center: newLoc })
         }
         myLocation()
     }, [])
 
+
     React.useEffect(() => {
-        mapOptions.center.lat && setMap(new window.google.maps.Map(ref.current, mapOptions))
+        loc && setMap(new window.google.maps.Map(ref.current, mapOptions))
     }, [mapOptions])
 
     return (
         <>
             <div ref={ref} className="map" />
-            {map && <LocationPin map={map} />}
+            {map && <LocationPin map={map} loc={loc} />}
         </>
     )
 }
 
 // create markers (should not have been named LocationPin maybe) LocationPin takes an arg of which map
-function LocationPin({ map }) {
+function LocationPin({ map, loc }) {
     const [data, setData] = React.useState(myPins)
     function handleClick(e) {
         console.log(e)
-
-
     }
 
     return (
         <>
+            {loc && <Marker map={map} position={loc} icon="https://api.iconify.design/svg-spinners:pulse-rings-multiple.svg" />}
             {Object.entries(data).map(([key, marker]) => {
                 // console.log(marker)
                 return <Marker
@@ -102,7 +104,7 @@ function LocationPin({ map }) {
 
 
 // Dummy data
-const myPins = {
+let myPins = {
     A: {
         position: { lat: 28.135455904357823, lng: -15.437538995216169 },
         about: "This is something about it",

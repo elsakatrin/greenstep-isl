@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import dynamic from 'next/dynamic'
 import Map from '@/components/Map/Map'
+import Spinner from '@/components/Spinner/Spinner'
 import { useLoadScript } from '@react-google-maps/api'
 import Navbar from '@/components/Navbar/Navbar'
 
@@ -14,7 +15,7 @@ export default function Home() {
     googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
   })
 
-  if (!isLoaded) return <div>Loading...</div>
+  if (!isLoaded) return <Spinner />
 
   return (
     <>
@@ -26,7 +27,6 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <SignUpForm />
-        <Navbar />
       </main>
     </>
   )

@@ -18,7 +18,7 @@ export default function Marker({
   React.useEffect(() => {
     if (!rootRef.current) {
       const container = document.createElement('div')
-      rootRef.current = createRoot(container)
+      rootRef.current = createRoot(container) // this is maybe redundant without advanced markers
       markerRef.current = new window.google.maps.Marker({
         position,
         map,
