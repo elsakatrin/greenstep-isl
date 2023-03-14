@@ -1,8 +1,48 @@
 import React from 'react'
 import useSWR from 'swr'
 import styles from './Form.module.css'
+import Button from '../Button/Button'
+import Link from 'next/link'
 
-export default function SignUpForm() {
+export default function LoginView() {
+  const [mode, setMode] = React.useState('login') // login | signup
+
+  return (
+    <>
+      <div className={styles.formWrapper}>
+        <div className={styles.buttonBox}>
+          {mode === 'login' && (
+            <Button onClick={() => setMode('signup')}>Create Account</Button>
+          )}
+          {mode === 'signup' && (
+            <Button onClick={() => setMode('login')}>
+              Already have an account? Login instead
+            </Button>
+          )}
+        </div>
+        {mode === 'signup' ? <SignUpForm /> : <LoginForm />}
+      </div>
+    </>
+  )
+}
+
+function LoginForm() {
+  return (
+    <div className={styles.form}>
+      <h2>Login</h2>
+      <form>
+        <input type="text" name="username" />
+        <input type="text" name="password" />
+        <Button type="submit">Login</Button>
+      </form>
+      <Button>
+        <Link href="/map">Shortcut</Link>
+      </Button>
+    </div>
+  )
+}
+
+function SignUpForm() {
   const [userdata, setUserdata] = React.useState({
     username: 'Mikkel?',
     email: 'miguel@gmail.com',
@@ -29,7 +69,7 @@ export default function SignUpForm() {
   }
 
   return (
-    <div className={styles.signupForm}>
+    <div className={styles.form}>
       <h2>Sign Up</h2>
       <form>
         <input
@@ -64,9 +104,9 @@ export default function SignUpForm() {
             handleChange(event)
           }}
         />
-        <button type="submit" onClick={handleClick}>
+        <Button type="submit" onClick={handleClick}>
           Sign Up
-        </button>
+        </Button>
       </form>
     </div>
   )
