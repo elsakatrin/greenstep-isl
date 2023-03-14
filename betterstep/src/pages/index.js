@@ -1,21 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import dynamic from 'next/dynamic'
 import Map from '@/components/Map/Map'
 import Spinner from '@/components/Spinner/Spinner'
-import { useLoadScript } from '@react-google-maps/api'
 import Navbar from '@/components/Navbar/Navbar'
 
-import SignUpForm from '@/components/SignUpForm/SignUpForm'
+import LoginView from '@/components/Login/Login'
 
 
 export default function Home() {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
-  })
+  // const { isLoaded, loadError } = useLoadScript({
+  //   googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
+  // })
 
-  if (!isLoaded) return <Spinner />
+  // if (!isLoaded) return <Spinner />
 
   return (
     <>
@@ -26,7 +23,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <SignUpForm />
+        <LoginView />
       </main>
     </>
   )
