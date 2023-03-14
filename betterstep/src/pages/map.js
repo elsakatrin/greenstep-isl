@@ -77,7 +77,7 @@ function MyMap() {
 function LocationPin({ map }) {
     const [data, setData] = React.useState(myPins)
     const image =
-        "https://api.iconify.design/svg-spinners:pulse-2.svg"
+        "https://api.iconify.design/bi:pin-map-fill.svg"
     function handleClick(e) {
         console.log(e)
 
@@ -91,7 +91,7 @@ function LocationPin({ map }) {
                 return <Marker
                     key={key}
                     map={map}
-                    icon={image}
+                    icon={marker.image}
                     about={marker.about}
                     position={marker.position}
                     onClick={handleClick}
@@ -107,18 +107,22 @@ function LocationPin({ map }) {
 const myPins = {
     A: {
         position: { lat: 28.135455904357823, lng: -15.437538995216169 },
-        about: "This is something about it"
+        about: "This is something about it",
+        image: 'https://api.iconify.design/bi:pin-map-fill.svg'
     },
     B: {
         position: { lat: 28.13281780589826, lng: -15.43693520966055 },
-        about: "This is something about it too"
+        about: "This is something about it too",
+        image: 'https://api.iconify.design/bi:pin-map-fill.svg'
     },
     C: {
         position: { lat: 28.13471652661439, lng: -15.436669506356887 },
-        about: "This is something about it three?"
+        about: "This is something about it three?",
+        image: 'https://api.iconify.design/bi:broadcast-pin.svg'
     },
     D: {
         position: positionConverter(28.131671872339304, -15.43437819099297),
-        about: "This is something about it four"
+        about: "This is something about it four",
+        image: 'https://api.iconify.design/bi:broadcast-pin.svg'
     },
 }
