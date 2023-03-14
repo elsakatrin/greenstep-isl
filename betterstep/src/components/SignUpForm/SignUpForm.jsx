@@ -1,5 +1,6 @@
 import React from 'react'
 import useSWR from 'swr'
+import styles from './Form.module.css'
 
 export default function SignUpForm() {
   const [userdata, setUserdata] = React.useState({
@@ -28,7 +29,7 @@ export default function SignUpForm() {
   }
 
   return (
-    <div className="signup-form">
+    <div className={styles.signupForm}>
       <h2>Sign Up</h2>
       <form>
         <input

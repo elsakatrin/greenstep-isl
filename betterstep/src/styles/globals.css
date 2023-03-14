@@ -1,5 +1,6 @@
 :root {
   --font-main: 'Hind Madurai', sans-serif;
+  --box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
 }
 
 * {
@@ -14,6 +15,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: var(--font-main);
+  position: relative;
 }
 
 #__next {
@@ -28,6 +30,7 @@ a {
 .map {
   height: 100vh;
   width: 100vw;
+  z-index: 10;
 }
 
 .map-container {

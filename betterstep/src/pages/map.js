@@ -1,21 +1,21 @@
 /* eslint-disable no-undef */
 /* global google */
-// import { useLoadScript, GoogleMap, MarkerF } from '@react-google-maps/api'
-// import { createRoot } from 'react-dom/client'
 import useSWR from 'swr'
 import { Wrapper, Status } from '@googlemaps/react-wrapper'
 import positionConverter from '@/utils/positionConverter'
 import Marker from '@/components/Marker/Marker'
 import MarkerTooltip from '@/components/MarkerTooltip/MarkerTooltip'
 import React from 'react'
+import getCurrentLocation from '@/utils/getCurrentLocation'
 
-const center = {
-    lat: 28.133592,
-    lng: -15.435924,
-}
+
+
+
 
 export default function Map() {
-    console.log(process.env.NEXT_PUBLIC_API_KEY)
+
+
+
     return (
         <Wrapper
             apiKey={process.env.NEXT_PUBLIC_API_KEY}
@@ -26,12 +26,8 @@ export default function Map() {
     )
 }
 
-const mapOptions = {
-    mapId: 'ae9b4eb94be3d8fd',
-    center: { lat: 28.133592, lng: -15.435924 },
-    zoom: 13,
-    disableDefaultUI: true,
-}
+
+
 
 const render = (status) => {
     switch (status) {
@@ -46,11 +42,27 @@ const render = (status) => {
 
 function MyMap() {
     const [map, setMap] = React.useState()
+    const [mapOptions, setMapOptions] = React.useState({
+        mapId: '1cdc7a504e15f689',
+        center: { lat: 0, lng: 0 },
+        zoom: 13,
+        disableDefaultUI: true,
+    })
+
     const ref = React.useRef()
 
     React.useEffect(() => {
-        setMap(new window.google.maps.Map(ref.current, mapOptions))
+        const myLocation = async () => {
+            const loc = await getCurrentLocation()
+            setMapOptions({ ...mapOptions, center: loc })
+            console.log(loc)
+        }
+        myLocation()
     }, [])
+
+    React.useEffect(() => {
+        mapOptions.center.lat && setMap(new window.google.maps.Map(ref.current, mapOptions))
+    }, [mapOptions])
 
     return (
         <>
@@ -63,52 +75,35 @@ function MyMap() {
 // create markers (should not have been named LocationPin maybe) LocationPin takes an arg of which map
 function LocationPin({ map }) {
     const [data, setData] = React.useState(myPins)
-    const [highlight, setHighlight] = React.useState()
-    const [openedMarker, setOpenedMarker] = React.useState()
-    const [quest, setQuest] = React.useState()
-    const [activeMarker, setActiveMarker] = React.useState()
 
     React.useEffect(() => {
-        if (!activeMarker) {
-            return
+        const setNewPins = setTimeout(() => {
+            let newPins = { ...myPins, E: { position: { lat: 28.139148, lng: -15.435599 } } }
+            setData(newPins)
+        }, 3000)
+        return () => {
+            clearTimeout(setNewPins)
         }
-        setData(activeMarker)
-    }, [activeMarker])
+    }, [])
 
-    function handleAccept() {
-        setActiveMarker(data[openedMarker])
-        setQuest(data[openedMarker])
-        setOpenedMarker(null)
+    function handleClick(e) {
+        console.log(e.domEvent.target)
+
+
     }
 
     return (
         <>
-            {quest && <ActiveQuest quest={quest} close={() => setQuest(null)} />}
-            {openedMarker && (
-                <MarkerTooltip
-                    // pass which marker
-                    marker={data[openedMarker]}
-                    close={() => setOpenedMarker(null)}
-                    accept={() => handleAccept()}
-                />
-            )}
-            {Object.entries(data).map(([key, marker]) => (
-                <Marker
+            {Object.entries(data).map(([key, marker]) => {
+                console.log(marker)
+                return <Marker
                     key={key}
                     map={map}
                     position={marker.position}
-                    onClick={() => setOpenedMarker(key)}
-                >
-                    <div
-                        className={`marker ${highlight === key ? 'highlighted' : ''}`}
-                        onMouseEnter={() => setHighlight(key)}
-                        onMouseLeave={() => setHighlight(null)}
-                    >
-                        <h2 className="pin-name">{marker.name}</h2>
-                        <span>Rating: {marker.rating}</span>
-                    </div>
-                </Marker>
-            ))}
+                    onClick={handleClick}
+                />
+            }
+            )}
         </>
     )
 }
@@ -117,27 +112,15 @@ function LocationPin({ map }) {
 // Dummy data
 const myPins = {
     A: {
-        name: 'Location 1',
-        position: positionConverter(28.135455904357823, -15.437538995216169),
-        quest: 'Take picture in front of the painting',
-        rating: 4.5,
+        position: { lat: 28.135455904357823, lng: -15.437538995216169 }
     },
     B: {
-        name: 'Location 2',
-        position: positionConverter(28.13281780589826, -15.43693520966055),
-        quest: 'Take picture in front of the alter',
-        rating: 3.2,
+        position: { lat: 28.13281780589826, lng: -15.43693520966055 }
     },
     C: {
-        name: 'Location 3',
-        position: positionConverter(28.13471652661439, -15.436669506356887),
-        quest: 'Take picture together with staff',
-        rating: 4.9,
+        position: { lat: 28.13471652661439, lng: -15.436669506356887 }
     },
     D: {
-        name: 'Location 4',
-        position: positionConverter(28.131671872339304, -15.43437819099297),
-        quest: 'Take picture with Anna',
-        rating: 5.1,
+        position: positionConverter(28.131671872339304, -15.43437819099297)
     },
 }

@@ -1,8 +1,16 @@
+/* eslint-disable no-undef */
+/* global google */
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 
 // creates custom marker
-export default function Marker({ map, children, position, onClick }) {
+export default function Marker({
+  map,
+  children,
+  position,
+  onClick,
+  animation,
+}) {
   const markerRef = React.useRef()
   const rootRef = React.useRef()
 
@@ -10,9 +18,10 @@ export default function Marker({ map, children, position, onClick }) {
     if (!rootRef.current) {
       const container = document.createElement('div')
       rootRef.current = createRoot(container)
-      markerRef.current = new google.maps.marker.AdvancedMarkerView({
+      markerRef.current = new window.google.maps.Marker({
         position,
-        content: container,
+        map,
+        animation: google.maps.Animation.DROP,
       })
     }
   }, [])

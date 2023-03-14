@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import dynamic from 'next/dynamic'
 import Map from '@/components/Map/Map'
 import { useLoadScript } from '@react-google-maps/api'
+import Navbar from '@/components/Navbar/Navbar'
 
 import SignUpForm from '@/components/SignUpForm/SignUpForm'
 
@@ -25,6 +26,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <SignUpForm />
+        <Navbar />
       </main>
     </>
   )

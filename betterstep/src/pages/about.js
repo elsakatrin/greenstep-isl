@@ -1,9 +1,18 @@
-let apiKey = process.env.local.NEXT_PUBLIC_API_KEY
-
-console.log(apiKey)
+import Layout from "@/components/Layout/Layout"
+import Link from "next/link"
 
 export default function About() {
     return (
-        <h2>Here comes the map</h2>
+        <>
+            <Layout>
+                <h2>Here comes the map</h2>
+                <Link href="/map">
+                    Map page
+                </Link>
+                <Link href="/quest">
+                    Start
+                </Link>
+            </Layout>
+        </>
     )
 }
