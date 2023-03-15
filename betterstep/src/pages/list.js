@@ -7,7 +7,6 @@ export default function List() {
         <>
             <Layout title="List">
                 <h1>List</h1>
-
             </Layout>
         </>
     )
