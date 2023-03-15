@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   isolation: isolate;
-  z-index: 1000000000;
+  z-index: 99;
 }
 .navbarWrapper .navigation {
   border-radius: var(--border-radius);

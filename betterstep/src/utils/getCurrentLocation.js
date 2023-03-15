@@ -5,7 +5,18 @@ const options = {
 };
 
 function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
+    // console.warn(`ERROR(${err.code}): ${err.message}`);
+    console.log(err)
+    if (err.code === 1) {
+        alert("Please allow location services to use this app")
+    } else if (err.code === 2) {
+        alert("Please enable location services to use this app")
+    } else if (err.code === 3) {
+        console.log('Reloading in 2 sec')
+        setTimeout(() => {
+            location.reload();
+        }, 2000)
+    }
 }
 
 
