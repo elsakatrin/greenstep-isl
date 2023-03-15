@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-
-
 import LoginView from '@/components/Login/Login'
 
+
+// TO DO
+// Check if location is enabled
 
 export default function Home() {
   return (
