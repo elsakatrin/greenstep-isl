@@ -11,7 +11,7 @@ import getCurrentLocation from '@/utils/getCurrentLocation'
 import Spinner from '@/components/Spinner/Spinner'
 
 
-
+// page this should be split up/ported into explore and quest
 
 export default function Map() {
     return (
@@ -23,9 +23,6 @@ export default function Map() {
         />
     )
 }
-
-
-
 
 const render = (status) => {
     switch (status) {
@@ -85,7 +82,10 @@ function LocationPin({ map, loc }) {
 
     return (
         <>
+            {/* This is the users own location */}
             {loc && <Marker map={map} position={loc} icon="https://api.iconify.design/svg-spinners:pulse-rings-multiple.svg" />}
+
+            {/* These are the loaded locations pins from data */}
             {Object.entries(data).map(([key, marker]) => {
                 // console.log(marker)
                 return <Marker
@@ -108,21 +108,21 @@ let myPins = {
     A: {
         position: { lat: 28.135455904357823, lng: -15.437538995216169 },
         about: "This is something about it",
-        image: 'https://api.iconify.design/bi:pin-map-fill.svg'
+        image: 'https://api.iconify.design/codicon:circle-large-filled.svg'
     },
     B: {
         position: { lat: 28.13281780589826, lng: -15.43693520966055 },
         about: "This is something about it too",
-        image: 'https://api.iconify.design/bi:pin-map-fill.svg'
+        image: 'https://api.iconify.design/codicon:circle-large-filled.svg'
     },
     C: {
         position: { lat: 28.13471652661439, lng: -15.436669506356887 },
         about: "This is something about it three?",
-        image: 'https://api.iconify.design/bi:broadcast-pin.svg'
+        image: 'https://api.iconify.design/codicon:circle-large-filled.svg'
     },
     D: {
         position: positionConverter(28.131671872339304, -15.43437819099297),
         about: "This is something about it four",
-        image: 'https://api.iconify.design/bi:broadcast-pin.svg'
+        image: 'https://api.iconify.design/codicon:circle-large-filled.svg'
     },
 }
