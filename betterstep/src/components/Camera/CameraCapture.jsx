@@ -1,9 +1,11 @@
 import React from 'react'
+import styles from './CameraCapture.module.css'
 
 export default function CameraCapture() {
   const [image, setImage] = React.useState('')
 
   let ref = React.useRef()
+
   function handleChange(e) {
     setImage(e.target.value)
     if (e.target.files && e.target.files[0]) {
@@ -14,21 +16,18 @@ export default function CameraCapture() {
   }
 
   return (
-    <div className="App">
-      <h1>Upload Image</h1>
-      <label>
-        <div className={styles.uploadBox}>
-          <p>Upload Image</p>
-        </div>
+    <div className={styles.cameraWrapper}>
+      <label className={styles.uploadBox}>
+        <span>{image ? image : 'Upload'}</span>
+        <input
+          type="file"
+          accept="capture=camera,image/*"
+          onChange={handleChange}
+        />
       </label>
-      <input
-        type="file"
-        accept="capture=camera,image/*"
-        onChange={handleChange}
-      />
-
-      <p>{image}</p>
-      <img ref={ref} src="#" alt="" width="200" />
+      <div className={styles.previewBox}>
+        <img ref={ref} alt="" width="200" />
+      </div>
     </div>
   )
 }
