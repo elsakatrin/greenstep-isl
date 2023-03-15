@@ -2,16 +2,23 @@ import React from 'react'
 import styles from './CameraCapture.module.css'
 
 export default function CameraCapture() {
-  const [image, setImage] = React.useState('')
+  const [image, setImage] = React.useState(null)
 
   let ref = React.useRef()
 
+  React.useEffect(() => {
+    if (ref.current) {
+      ref.current.src = image
+    }
+    return () => {
+      URL.revokeObjectURL(image)
+    }
+  }, [image])
+
   function handleChange(e) {
-    setImage(e.target.value)
     if (e.target.files && e.target.files[0]) {
-      let img = e.target.files[0]
-      console.log(img)
-      ref.current.src = URL.createObjectURL(img)
+      let img = URL.createObjectURL(e.target.files[0])
+      setImage(img)
     }
   }
 

@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout/Layout"
+import IsLocationActive from "@/components/IsLocationActive/IsLocationActive"
 
 // This should probably be a component that renders a list dynamically
 

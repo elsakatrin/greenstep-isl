@@ -1,0 +1,5 @@
+.badgeWrapper {
+  padding: 1rem;
+  background-color: var(--color-prim-faded);
+  border-radius: var(--border-radius);
+}
