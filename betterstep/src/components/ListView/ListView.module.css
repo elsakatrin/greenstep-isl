@@ -1,0 +1,8 @@
+.listWrapper {
+  border: var(--border-modals);
+  background-color: var(--color-second-pale);
+  color: var(--color-prim-green);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+}
