@@ -1,6 +1,10 @@
 import styles from './MarkerTooltip.module.css'
 import Button from '../Button/Button'
 import CameraCapture from '../Camera/CameraCapture'
+import React from 'react'
+import { imageService } from '@/pages/api/imageService'
+import useSWR from 'swr'
+
 // custom marker tooltip
 export default function MarkerTooltip({ marker, callback }) {
   console.log(marker)
@@ -18,14 +22,11 @@ export default function MarkerTooltip({ marker, callback }) {
         <h2>{marker.name}</h2>
         <span>{marker.sites_master.type_name}</span>
         <p>{marker.description}</p>
-        <img
-          src={marker.image}
-          onError={(e) =>
-            (e.target.src = 'https://via.placeholder.com/1000x200')
-          }
+        {<img
+          src={'./../../public/locations/'+marker.image}
           alt={marker.about}
           className={styles.img}
-        />
+        />}
 
         <div className="buttonbox">
           <Button onClick={handleAccept}>Accept</Button>
