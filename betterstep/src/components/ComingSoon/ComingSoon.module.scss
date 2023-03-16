@@ -1,0 +1,42 @@
+//It doesn't want to center the normalway so this css is kind of messy sorry guys
+.container{
+    position: absolute;
+    align-items: center;
+    top: 10px;
+    z-index: 99;
+    background-color: white;
+    border-radius: 20px;
+    border: 3px solid #E7EAEA;
+    width: 20.25rem;
+    height: 18rem;
+    margin:auto;
+    top: 20%;
+    left: 40%;
+    justify-content: center;
+    width: clamp(20px, 700px, 90wh);
+}
+
+.content{
+    display: inline-block;
+}
+
+.comingsoon{
+    font-size: 18px;
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.heading{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.gobtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    
+}
