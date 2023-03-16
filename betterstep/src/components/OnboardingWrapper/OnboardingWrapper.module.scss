@@ -7,6 +7,8 @@
     background-color: white;
     color: black;
     margin: auto;
+    border-radius: 20px;
+    border: 3px solid #E7EAEA;
 }
 
 .modal{
@@ -16,7 +18,9 @@
 .heading{
 font-size: 20px;
 text-align: center;
-margin-top: 55px;
+margin-top: 3.5rem;
+margin-bottom: 5rem;
+
 }
 
 //For each icon to put inside the box
@@ -27,7 +31,6 @@ margin-top: 55px;
     border-radius: 20px;
     padding: 1rem;
     width: 5.6rem;
-    // height: 5.7rem;
     margin: 1.5px;
     img{
         width: 100%;
@@ -56,7 +59,6 @@ margin-top: 55px;
     padding: 1rem;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     padding: 0.6rem;
 }
 
@@ -68,18 +70,15 @@ margin-top: 55px;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0.6rem;
+    justify-content: center;
 }
 
-.buttoncontainer{
-    display: flex;
-    margin:auto;
-}
 
 #prevbtn{
     background: none;
-  border: none;
-  padding: 0;
-  font-size: 1em;
+    border: none;
+    padding: 0;
+    font-size: 1em;
 }
 #forwardbtn{
     background: none;
@@ -105,15 +104,14 @@ margin-top: 55px;
 }
 .buttoncontainer{
     position: absolute;
-    margin-top: -3rem;
+    margin-top: -5rem;
     display: flex;
     justify-content: center;
-
+    padding: 1rem;
+    z-index: auto;
+    gap: 5rem;
 }
 
-// #prevbtn{
-//     float:left;
-// }
 #forwardbtn{
     float: right;
     margin-left: 7rem;
@@ -121,13 +119,13 @@ margin-top: 55px;
 }
 
 .subhead{
-font-size: 16px;
-font-weight: 550;
-margin-left: 1.25rem;
-margin-right: 1.25rem;
-margin-top: 2rem;
-margin-bottom: 2rem;
-font-size: 1rem;
+    font-size: 16px;
+    font-weight: 550;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
 .bodytxtgreen{
@@ -138,5 +136,7 @@ font-size: 1rem;
     font-size: 16px;
     color: #627573;
     text-align: center;
+    font-weight: 550;
 }
+
 
