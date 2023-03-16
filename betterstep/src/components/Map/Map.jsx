@@ -75,7 +75,7 @@ function MyMap({ sites }) {
       setMapOptions({ ...mapOptions, center: newLoc })
     }
     myLocation()
-    console.log(sites?.data)
+
     setData(sites?.data)
   }, [sites])
 
@@ -116,7 +116,6 @@ function MyMap({ sites }) {
 
       {map &&
         data?.map((marker, key) => {
-          console.log(marker.description)
           return (
             <Marker
               key={key}
@@ -157,7 +156,6 @@ let myPins = {
     icon: 'https://api.iconify.design/codicon:circle-large-filled.svg',
   },
   B: {
-
     position: positionConverter(28.129167348313723, -15.435352240473594),
     name: 'Las Arenas',
     about: 'cool neighborhood to explore',
