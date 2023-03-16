@@ -134,8 +134,8 @@ function MyMap() {
 
 let myPins = {
   A: {
-    position: positionConverter(28.129167348314727, -15.435352240473591),
-    name: 'Arenales',
+    position: positionConverter(28.129167348312727, -15.435352240473591),
+    name: 'Test',
     about: 'cool neighborhood to explore',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/La_plaza_de_la_Feria_02.jpg/760px-Mapcarta.jpg',
@@ -145,7 +145,7 @@ let myPins = {
     icon: 'https://api.iconify.design/codicon:circle-large-filled.svg',
   },
   B: {
-    position: positionConverter(28.129167348314723, -15.435352240473594),
+    position: positionConverter(28.129167348313723, -15.435352240473594),
     name: 'Las Arenas',
     about: 'cool neighborhood to explore',
     image:
@@ -156,7 +156,7 @@ let myPins = {
     icon: 'https://api.iconify.design/codicon:circle-large-filled.svg',
   },
   C: {
-    position: positionConverter(28.129167348314744, -15.435352240473593),
+    position: positionConverter(28.129167348412, -15.435352240473593),
     name: 'Thrid Place',
     about: 'cool neighborhood to explore',
     image:
