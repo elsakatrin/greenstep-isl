@@ -10,9 +10,14 @@ export default function MarkerTooltip({ marker, callback }) {
     <div className={styles.tooltipWrapper}>
       <div className={styles.tooltip}>
         <h2>{marker.name}</h2>
-        <span>{marker.type}</span>
-        <p>{marker.desc}</p>
-        <img src={marker.image} alt={marker.about} className={styles.img} />
+
+        <span>{marker.sites_master.type_name}</span>
+        <p>{marker.description}</p>
+        {<img
+          src={'./../public/locations/'+marker.image}
+          alt={marker.about}
+          className={styles.img}
+        />}
         <div className="buttonbox">
           <Button onClick={handleCallback}>Accept Quest</Button>
           <Button onClick={handleCallback}>Decline Quest</Button>
