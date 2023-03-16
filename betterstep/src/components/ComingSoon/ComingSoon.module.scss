@@ -11,13 +11,15 @@
     height: 18rem;
     margin:auto;
     top: 20%;
-    left: 40%;
+    left: 35%;
     justify-content: center;
     width: clamp(20px, 700px, 90wh);
+    position: fixed;
 }
 
 .content{
     display: inline-block;
+    
 }
 
 .comingsoon{
@@ -38,5 +40,4 @@
     display: flex;
     justify-content: center;
     margin-top: 3rem;
-    
 }
