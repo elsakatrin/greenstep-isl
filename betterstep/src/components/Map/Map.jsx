@@ -51,6 +51,7 @@ function MyMap() {
   const [loc, setLoc] = React.useState() // current user location
   const [targetLocation, setTargetLocation] = React.useState() // target location
   const [data, setData] = React.useState(myPins)
+
   const [selectedMarker, setSelectedMarker] = React.useState(null)
   const [mapOptions, setMapOptions] = React.useState({
     mapId: '1cdc7a504e15f689',
