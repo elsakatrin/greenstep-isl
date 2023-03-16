@@ -10,6 +10,7 @@ import React from 'react'
 import getCurrentLocation from '@/utils/getCurrentLocation'
 import Spinner from '@/components/Spinner/Spinner'
 import IsLocationActive from '@/components/IsLocationActive/IsLocationActive'
+import { dataService } from './api/dataService'
 
 
 // page this should be split up/ported into explore and quest
@@ -81,6 +82,7 @@ function MyMap() {
 function LocationPin({ map, loc }) {
     const [selectedMarker, setSelectedMarker] = React.useState(null)
     const [data, setData] = React.useState(myPins)
+
     function handleClick(e) {
         console.log(e.latLng)
     }
@@ -105,17 +107,6 @@ function LocationPin({ map, loc }) {
         </>
     )
 }
-
-// return <Marker
-//                     key={key}
-//                     id={marker.id}
-//                     map={map}
-//                     icon={marker.image}
-//                     about={marker.about}
-//                     position={marker.position}
-//                     onClick={handleClick}
-//                 />
-
 
 // Dummy data
 let myPins = {

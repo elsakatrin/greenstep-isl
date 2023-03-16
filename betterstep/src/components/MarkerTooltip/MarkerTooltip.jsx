@@ -20,6 +20,7 @@ export default function MarkerTooltip({ marker, callback }) {
     <div className={styles.tooltipWrapper}>
       <div className={styles.tooltip}>
         <h2>{marker.name}</h2>
+
         <span>{marker.sites_master.type_name}</span>
         <p>{marker.description}</p>
         {<img
