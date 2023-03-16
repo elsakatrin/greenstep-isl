@@ -1,5 +1,28 @@
 .badgeWrapper {
   padding: 1rem;
-  background-color: var(--color-prim-faded);
   border-radius: var(--border-radius);
+}
+
+.txt {
+  text-align: center;
+  color: black;
+  margin-left: 2.2rem;
+  margin-right: 2.2rem;
+}
+
+.h1 {
+  color: black;
+  margin-bottom: 4rem;
+  margin-left: 2.2rem;
+  margin-right: 2.2rem;
+  text-align: center;
+}
+
+.icon {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
