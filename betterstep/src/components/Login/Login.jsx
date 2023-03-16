@@ -35,7 +35,7 @@ function LoginForm() {
         <input type="text" name="password" />
         <Button type="submit">Login</Button>
       </form>
-      <Button>
+      <Button className={shortcut}>
         <Link href="/map">Shortcut</Link>
       </Button>
     </div>
@@ -73,6 +73,7 @@ function SignUpForm() {
       <h2>Sign Up</h2>
       <form>
         <input
+          className={input}
           type="text"
           name="username"
           value={userdata.username}
@@ -81,6 +82,7 @@ function SignUpForm() {
           }}
         />
         <input
+          className={input}
           type="text"
           name="email"
           value={userdata.email}
@@ -89,6 +91,7 @@ function SignUpForm() {
           }}
         />
         <input
+          className={input}
           type="text"
           name="password"
           value={userdata.password}
@@ -97,6 +100,7 @@ function SignUpForm() {
           }}
         />
         <input
+          className={input}
           type="text"
           name="confirmPassword"
           value={userdata.confirmPassword}
@@ -104,7 +108,7 @@ function SignUpForm() {
             handleChange(event)
           }}
         />
-        <Button type="submit" onClick={handleClick}>
+        <Button className={signup} type="submit" onClick={handleClick}>
           Sign Up
         </Button>
       </form>
