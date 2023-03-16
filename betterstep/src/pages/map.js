@@ -10,6 +10,7 @@ import React from 'react'
 import getCurrentLocation from '@/utils/getCurrentLocation'
 import Spinner from '@/components/Spinner/Spinner'
 import IsLocationActive from '@/components/IsLocationActive/IsLocationActive'
+import { dataService } from './api/dataService'
 
 
 // page this should be split up/ported into explore and quest
@@ -80,7 +81,20 @@ function MyMap() {
 // create markers (should not have been named LocationPin maybe) LocationPin takes an arg of which map
 function LocationPin({ map, loc }) {
     const [selectedMarker, setSelectedMarker] = React.useState(null)
-    const [data, setData] = React.useState(myPins)
+    const [data, setData] = React.useState()
+
+    //testing fech data
+    const { data: fetchedData, error } = useSWR(() => {
+        dataService.getAllSites()
+    })
+
+    React.useEffect(() => {
+        if (fetchedData) {
+            setData(fetchedData)
+        }
+    }, [fetchedData])
+
+
     function handleClick(e) {
         console.log(e.latLng)
     }
@@ -91,7 +105,7 @@ function LocationPin({ map, loc }) {
             {loc && <Marker map={map} position={loc} icon="https://api.iconify.design/svg-spinners:pulse-rings-multiple.svg" />}
             {/* These are the loaded locations pins from data */}
             {Object.entries(data).map(([key, marker]) => {
-                return <CustomMarker
+                return <Marker
                     key={key}
                     id={marker.id}
                     map={map}
@@ -105,17 +119,6 @@ function LocationPin({ map, loc }) {
         </>
     )
 }
-
-// return <Marker
-//                     key={key}
-//                     id={marker.id}
-//                     map={map}
-//                     icon={marker.image}
-//                     about={marker.about}
-//                     position={marker.position}
-//                     onClick={handleClick}
-//                 />
-
 
 // Dummy data
 let myPins = {

@@ -1,8 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { imageService } from "./imageService";
 
-const supabase = createClient(import.meta.env.VITE_PROJECT_CLIENT, import.meta.env.VITE_PROJECT_KEY);
-
+const supabase = createClient(process.env.NEXT_PUBLIC_PROJECT_CLIENT, process.env.NEXT_PUBLIC_PROJECT_KEY);
 /*
 RATE
 */ 
@@ -41,13 +40,13 @@ SITES
 const getAllSites = async () =>{
     let { data: sites, error } = await supabase
         .from('sites')
-        .select(`id,name,sites_locations(lng,lat),sites_master(type_name,icon),description,image`)
+        .select(`id,name,sites_locations(lat,lng),sites_master(type_name,icon),description,image`)
         //error handle side
         if(error!=null&&rate==null){
             console.log('somthing happend, ErrorCode:'+error.code);
             return null;
         }
-    console.log(sites);
+    // console.log(sites);
     return sites;
 }
 

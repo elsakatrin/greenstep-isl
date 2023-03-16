@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabase = createClient(import.meta.env.VITE_PROJECT_CLIENT, import.meta.env.VITE_PROJECT_KEY);
+const supabase = createClient(process.env.NEXT_PUBLIC_PROJECT_CLIENT, process.env.NEXT_PUBLIC_PROJECT_KEY);
 
 // export const getAllSites = async () =>{
 //     let {data: sites, error} = await supabase
