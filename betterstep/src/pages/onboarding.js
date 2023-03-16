@@ -29,6 +29,7 @@ import Link from "next/link"
 
 
 
+
 export default function Onboarding() {
     //To make the slider work from side to side
     //Gotten from here https://blaze-slider.dev/docs 
@@ -91,7 +92,8 @@ export default function Onboarding() {
 
 
                     <OnboardingWrapper heading="The icons"> 
-                        <p className={styles.bodytxt} >What do all the icons mean? We’ll walk you through it.</p>
+                        {/* <p className={styles.bodytxt} >What do all the icons mean? We’ll walk you through it.</p> */}
+                        <p className={styles.bodytxt}>You'll see these icons when you explore, they tell you what kind of a place you're looking at!</p>
                         <div className={styles.iconscontainer}>
 
                         <div className={styles.icon}>
@@ -133,8 +135,8 @@ export default function Onboarding() {
                     </OnboardingWrapper>
 
                     <OnboardingStart heading="Are you ready to take a green step?">
-                        <Link href="/map">
-                        <Button>
+                        <Link className={styles.readybtn} href="/map">
+                        <Button id={styles.readybtn}>
                             <p className={styles.bodytxt} >Get started!</p>
                         </Button>
                         </Link>
@@ -146,10 +148,10 @@ export default function Onboarding() {
 
             <div className={styles.buttoncontainer}>
                     <button className="blaze-prev" id={styles.prevbtn}>
-                        <Image src={back} alt="back" width={115} height={48} />
+                        <Image src={back} alt="back" width={48} height={48} />
                     </button>
                     <button className="blaze-next" id={styles.forwardbtn}>
-                        <Image src={forward} alt="back" width={115} height={48} />
+                        <Image src={forward} alt="back" width={48} height={48} />
                     </button>
             </div>
 
