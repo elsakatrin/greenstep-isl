@@ -11,14 +11,16 @@ export default function LoginView() {
     <>
       <div className={styles.formWrapper}>
         <div className={styles.buttonBox}>
-          {mode === 'login' && (
-            <Button onClick={() => setMode('signup')}>Create Account</Button>
+
+          {/* Had to comment out the login/signup because we didn't have enough time  */}
+          {/* {mode === 'login' && (
+            <Button className={styles.createbtn}onClick={() => setMode('signup')}>Create Account</Button>
           )}
           {mode === 'signup' && (
             <Button onClick={() => setMode('login')}>
               Already have an account? Login instead
-            </Button>
-          )}
+            </Button> */}
+          {/* )} */}
         </div>
         {mode === 'signup' ? <SignUpForm /> : <LoginForm />}
       </div>
@@ -29,14 +31,14 @@ export default function LoginView() {
 function LoginForm() {
   return (
     <div className={styles.form}>
-      <h2>Login</h2>
-      <form>
-        <input type="text" name="username" />
-        <input type="text" name="password" />
-        <Button type="submit">Login</Button>
+      <h2 className={styles.h2}>Login</h2>
+      <form className={styles.inputform}> 
+        <input className={styles.input} type="text" name="username" />
+        <input className={styles.input} type="text" name="password" />
+        {/* <Button className={styles.loginbtn} type="submit">Login</Button> */}
       </form>
-      <Button className={shortcut}>
-        <Link href="/map">Shortcut</Link>
+      <Button className={styles.shortcut}>
+        <Link href="/map">Login</Link>
       </Button>
     </div>
   )
