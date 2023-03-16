@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <div className={styles.navbarWrapper}>
       <nav className={styles.navigation}>
-        <Link href="/map">
+        <Link href="/mode">
           <Button>Back</Button>
         </Link>
         <Link href="/about">
@@ -15,6 +15,7 @@ export default function Navbar() {
         <Link href="/user">
           <Button>User</Button>
         </Link>
+        <Button>List</Button>
       </nav>
     </div>
   )

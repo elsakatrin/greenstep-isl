@@ -12,7 +12,15 @@ export default function MarkerTooltip({ marker, callback }) {
         <h2>{marker.name}</h2>
         <span>{marker.type}</span>
         <p>{marker.desc}</p>
-        <img src={marker.image} alt={marker.about} className={styles.img} />
+        <img
+          src={marker.image}
+          onError={(e) =>
+            (e.target.src = 'https://via.placeholder.com/1000x200')
+          }
+          alt={marker.about}
+          className={styles.img}
+        />
+
         <div className="buttonbox">
           <Button onClick={handleCallback}>Accept Quest</Button>
           <Button onClick={handleCallback}>Decline Quest</Button>
