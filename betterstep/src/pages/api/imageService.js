@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
-const supabase = createClient(import.meta.env.VITE_PROJECT_CLIENT, import.meta.env.VITE_PROJECT_KEY);
+const supabase = createClient(process.env.NEXT_PUBLIC_PROJECT_CLIENT, process.env.NEXT_PUBLIC_PROJECT_KEY);
 
 //sites that need image crud
 /*
@@ -61,8 +61,8 @@ async function uploadImage(imageName, file, bucketName) {
         })
 }
 //to download an image of one bucket
-async function downloadImage(imageNameID,bucketName) {
-    const {data:imageURL,error} = await supabase
+async function downloadImage(imageNameID, bucketName) {
+    const { data: imageURL, error } = await supabase
         .storage
         .from(bucketName)
         .getPublicUrl(imageNameID)
@@ -95,7 +95,7 @@ const sendImage = async (file) => {
     return filename;
 }
 //mixed method of downloadImage and LetsHash to make easyer
-const findImageByNameID = async (imageid) =>{
+const findImageByNameID = async (imageid) => {
 
     switch (url_location) {
         case (TO_VISITED):
@@ -114,7 +114,7 @@ const findImageByNameID = async (imageid) =>{
             console.log('doest works');
             break;
     }
-    return 
+    return
 }
 
 export const imageService = {
