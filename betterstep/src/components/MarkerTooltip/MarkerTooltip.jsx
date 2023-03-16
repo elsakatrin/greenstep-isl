@@ -1,7 +1,9 @@
 import styles from './MarkerTooltip.module.css'
 import Button from '../Button/Button'
+import CameraCapture from '../Camera/CameraCapture'
 // custom marker tooltip
 export default function MarkerTooltip({ marker, callback }) {
+  console.log(marker)
   // callback function for accepting or declining quest (passes state back to map component)
   function handleAccept() {
     callback(null)
@@ -14,8 +16,8 @@ export default function MarkerTooltip({ marker, callback }) {
     <div className={styles.tooltipWrapper}>
       <div className={styles.tooltip}>
         <h2>{marker.name}</h2>
-        <span>{marker.type}</span>
-        <p>{marker.desc}</p>
+        <span>{marker.sites_master.type_name}</span>
+        <p>{marker.description}</p>
         <img
           src={marker.image}
           onError={(e) =>

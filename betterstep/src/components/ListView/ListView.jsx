@@ -1,6 +1,6 @@
 import styles from './ListView.module.css'
 
-export default function ListView() {
+export default function ListView({ locations }) {
   return (
     <div className={styles.listWrapper}>
       <div className={styles.list}>

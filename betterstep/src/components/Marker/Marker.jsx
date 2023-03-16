@@ -10,6 +10,7 @@ export default function Marker({
   position,
   onClick,
   about,
+  type,
   name,
   icon,
   id,
@@ -28,6 +29,7 @@ export default function Marker({
         about,
         icon,
         name,
+        type,
         onClick,
       })
     }
@@ -38,6 +40,7 @@ export default function Marker({
     markerRef.current.position = position
     markerRef.current.name = name
     markerRef.current.icon = icon
+    markerRef.current.type = type
     markerRef.current.map = map
     markerRef.current.id = id
     markerRef.current.about = about
