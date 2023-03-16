@@ -10,7 +10,7 @@ export default function OnboardingWrapper({heading, children}) {
     return(
         
             <div className={styles.container}>
-                <h1>{heading}</h1>
+                <h1 className={styles.heading}>{heading}</h1>
                 {children}
             </div>
        
