@@ -4,7 +4,8 @@ import CameraCapture from '../Camera/CameraCapture'
 import React from 'react'
 import { imageService } from '@/pages/api/imageService'
 import useSWR from 'swr'
-
+import Image from 'next/image'
+import imagesimport from '../imagesimports'
 // custom marker tooltip
 export default function MarkerTooltip({ marker, callback }) {
   console.log(marker)
@@ -16,6 +17,7 @@ export default function MarkerTooltip({ marker, callback }) {
   function handleDecline() {
     callback(null)
   }
+
   return (
     <div className={styles.tooltipWrapper}>
       <div className={styles.tooltip}>
@@ -23,11 +25,7 @@ export default function MarkerTooltip({ marker, callback }) {
 
         <span>{marker.sites_master.type_name}</span>
         <p>{marker.description}</p>
-        {<img
-          src={'./../../public/locations/'+marker.image}
-          alt={marker.about}
-          className={styles.img}
-        />}
+        <Image src={"https://ssbptdtmzjjavisvxdpp.supabase.co/storage/v1/object/public/sites-photos/"+marker.image+"?t=2023-03-16T18%3A19%3A19.631Z"} alt="Go back" width={200} height={150}/>
 
         <div className="buttonbox">
           <Button onClick={handleAccept}>Accept</Button>
