@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* global google */
 import useSWR from 'swr'
-import { Wrapper, Status } from '@googlemaps/react-wrapper'
+import { Wrapper, Status, DirectionsRenderer } from '@googlemaps/react-wrapper'
 import positionConverter from '@/utils/positionConverter'
 import Marker from '@/components/Marker/Marker'
 import MarkerTooltip from '@/components/MarkerTooltip/MarkerTooltip'

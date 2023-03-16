@@ -22,7 +22,7 @@ export default function Map() {
     <Wrapper
       apiKey={process.env.NEXT_PUBLIC_API_KEY}
       version="beta"
-      libraries={['marker']}
+      libraries={['marker', 'routes']}
       render={render}
     />
   )
