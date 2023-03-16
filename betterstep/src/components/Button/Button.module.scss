@@ -9,5 +9,8 @@
   &:hover {
     background-color: var(--color-white);
     color: var(--color-prim-green);
+    img {
+      filter: invert(1);
+    }
   }
 }
