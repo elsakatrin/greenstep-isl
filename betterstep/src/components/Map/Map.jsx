@@ -146,8 +146,8 @@ function MyMap({ sites }) {
 
 let myPins = {
   A: {
-    position: positionConverter(28.129167348314727, -15.435352240473591),
-    name: 'Arenales',
+    position: positionConverter(28.129167348312727, -15.435352240473591),
+    name: 'Test',
     about: 'cool neighborhood to explore',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/La_plaza_de_la_Feria_02.jpg/760px-Mapcarta.jpg',
@@ -157,19 +157,22 @@ let myPins = {
     icon: 'https://api.iconify.design/codicon:circle-large-filled.svg',
   },
   B: {
-    position: positionConverter(27.908835005467164, -15.386367429317279),
-    name: 'Avenida Maritima',
-    about: 'Walking path',
-    image: 'https://s0.wklcdn.com/image_170/5104874/36727994/23786040.jpg',
-    type: 'Beach',
-    desc: "Enyoing the good weather, most popular ways of doing so is to cycle, skate or simply walk along the Avenida Marítima. The Avenida Marítima connects the pretty fishing village of San Cristóbal, arguably the best place to eat in Las Palmas de Gran Canaria (especially if you're a fish and seafood enthusiast), with Playa de Alcaravaneras. ",
-    id: '12',
+
+    position: positionConverter(28.129167348313723, -15.435352240473594),
+    name: 'Las Arenas',
+    about: 'cool neighborhood to explore',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/La_plaza_de_la_Feria_02.jpg/760px-Mapcarta.jpg',
+    type: 'neighborhood',
+    desc: "Visit one of the city's neighborhoods such as Arenales. Climb up to the colorful barrios of San Nicolas and San Juan. Sitting at the top of a cliff, this area was one of the first to be inhabited on the island. The irregularity of house shapes is due to the fact that the vast majority were self-constructed homes. Formerly more disadvantaged neighborhoods, they are now an iconic image of the city. Wander down narrow streets and enjoy panoramic views of the city.",
+    id: '1',
     icon: 'https://api.iconify.design/codicon:circle-large-filled.svg',
   },
   C: {
-    position: positionConverter(28.032539625930006, -15.459919294970438),
-    name: 'Caldera de Bandama',
-    about: 'Natural wonder',
+    position: positionConverter(28.129167348412, -15.435352240473593),
+    name: 'Thrid Place',
+    about: 'cool neighborhood to explore',
+
     image:
       'https://localguidegrancanaria.com/wp-content/uploads/caldera-de-bandama-1.jpg',
     type: 'Nature',
