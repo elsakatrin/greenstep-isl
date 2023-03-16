@@ -1,1 +1,12 @@
-/*# sourceMappingURL=OnboardingStart.module.css.map */
+.container {
+  width: clamp(20px, 700px, 90wh);
+  height: 20rem;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+}
