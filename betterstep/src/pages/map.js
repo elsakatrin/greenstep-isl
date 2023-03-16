@@ -81,19 +81,7 @@ function MyMap() {
 // create markers (should not have been named LocationPin maybe) LocationPin takes an arg of which map
 function LocationPin({ map, loc }) {
     const [selectedMarker, setSelectedMarker] = React.useState(null)
-    const [data, setData] = React.useState()
-
-    //testing fech data
-    const { data: fetchedData, error } = useSWR(() => {
-        dataService.getAllSites()
-    })
-
-    React.useEffect(() => {
-        if (fetchedData) {
-            setData(fetchedData)
-        }
-    }, [fetchedData])
-
+    const [data, setData] = React.useState(myPins)
 
     function handleClick(e) {
         console.log(e.latLng)
