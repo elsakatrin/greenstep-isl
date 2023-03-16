@@ -38,7 +38,7 @@ export default function Onboarding() {
         const slider = new BlazeSlider(el, {
         all: {
             slidesToShow: 1,
-            loop: true,},
+            loop: false,},
             '(min-width: 500px)': {
                 loop: false,
                 slidesToShow: 1,
@@ -48,9 +48,6 @@ export default function Onboarding() {
               },
             }
         )
-
-    // const el = document.querySelector('.blaze-slider')
-    // new BlazeSlider(el)
     });
     
 
@@ -61,40 +58,40 @@ export default function Onboarding() {
         <div className="blaze-slider">
             <div className="blaze-container">
                 <div className="blaze-track-container">
-                    <div className="blaze-track">
+                    <div className="blaze-track" id={styles.slidecontainer}>
 
                     
                     <OnboardingWrapper heading="Explore new grounds">
-                        <Image src={exploreicon} alt="Explore example" width={115} height={48}/>
+                        <Image className={styles.gameicon} src={exploreicon} alt="Explore example" width={115} height={48}/>
 
-                    <p>When choosing explore you get to choose what kind of activity you want to do! You get a plan of your explorations, you can see the locations and information about all the interesting places you’re about to visit. 
+                    <p className={styles.bodytxt}>When choosing explore you get to choose what kind of activity you want to do! You get a plan of your explorations, you can see the locations and information about all the interesting places you’re about to visit. 
                     When you’ve finished exploring you get information about your accomplishments!</p>
-                    <div className={styles.iconscontainer}>
-                        <div className={styles.icon}>
-                            <Image src={backicon} alt="Go back" width={115} height={48}/>
+                    <div className={styles.naviconscontainer}>
+                        <div className={styles.navicon}>
+                            <Image src={backicon} alt="Go back" width={115} height={35}/>
                         </div>
-                        <div className={styles.icon}>
-                            <Image src={list} alt="List of all places" width={115} height={48}/>
+                        <div className={styles.navicon}>
+                            <Image src={list} alt="List of all places" width={115} height={35}/>
                         </div>
-                        <div className={styles.icon}>
-                            <Image src={questionmark} alt="Explainations for app" width={115} height={48}/>
+                        <div className={styles.navicon}>
+                            <Image src={questionmark} alt="Explainations for app" width={115} height={35}/>
                         </div>
-                        <div className={styles.icon}>
-                            <Image src={user} alt="User profile" width={115} height={48}/>
+                        <div className={styles.navicon}>
+                            <Image src={user} alt="User profile" width={115} height={35}/>
                         </div>
                     </div>
                     </OnboardingWrapper>
                     
 
                     <OnboardingWrapper heading="Join a quest"> 
-                    <Image src={questicon} alt="Quest example" width={115} height={48}/>
-                        <p>It’s a game! You can choose what activity you want to use, and you only get one location at a time. When arriving to a location you get a task that you have to complete to keep going on your journey. You also get side quests that you can visit 
+                    <Image className={styles.gameicon} src={questicon} alt="Quest example" width={115} height={48}/>
+                        <p className={styles.bodytxt} >It’s a game! You can choose what activity you want to use, and you only get one location at a time. When arriving to a location you get a task that you have to complete to keep going on your journey. You also get side quests that you can visit 
                         When you’ve finished your quest you get information about your accomplishments and even share them with your friends!  </p>
                     </OnboardingWrapper>
 
 
                     <OnboardingWrapper heading="The icons"> 
-                        <p>What do all the icons mean? We’ll walk you through it.</p>
+                        <p className={styles.bodytxt} >What do all the icons mean? We’ll walk you through it.</p>
                         <div className={styles.iconscontainer}>
 
                         <div className={styles.icon}>
@@ -129,34 +126,33 @@ export default function Onboarding() {
 
 
                     <OnboardingWrapper heading="Sustainability">
-                        <p>We want to encourage you to make new and more environmental friendly choices! </p> 
-                        <p>Environmental sustainability is the ability to maintain an ecological balance in our planet's natural environment and conserve natural resources to support the wellbeing of current and future generations.</p>
-                        <p>When exploring we want you to walk or use sustainable transportation when exploring your surroundings, don’t litter and remember to respect the environment. </p>
-                        <p>There's no planet B</p>
+                        <p className={styles.subhead} >We want to encourage you to make new and more environmental friendly choices! </p> 
+                        <p className={styles.bodytxt} >Environmental sustainability is the ability to maintain an ecological balance in our planet's natural environment and conserve natural resources to support the wellbeing of current and future generations.</p>
+                        <p className={styles.bodytxt} >When exploring we want you to walk or use sustainable transportation when exploring your surroundings, don’t litter and remember to respect the environment. </p>
+                        <p className={styles.bodytxtgreen} >There's no planet B</p>
                     </OnboardingWrapper>
 
                     <OnboardingStart heading="Are you ready to take a green step?">
                         <Link href="/map">
                         <Button>
-                            <p>Get started!</p>
+                            <p className={styles.bodytxt} >Get started!</p>
                         </Button>
                         </Link>
                     </OnboardingStart>
-                    </div>
+
+
                 </div>
+                    </div>
 
             <div className={styles.buttoncontainer}>
-                <div className={styles.arrowbtn}>
                     <button className="blaze-prev" id={styles.prevbtn}>
                         <Image src={back} alt="back" width={115} height={48} />
                     </button>
-                </div>
-                <div className={styles.arrowbtn}>
                     <button className="blaze-next" id={styles.forwardbtn}>
                         <Image src={forward} alt="back" width={115} height={48} />
                     </button>
-                    </div>
-                </div>
+            </div>
+
         </div>
         </div>
         

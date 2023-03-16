@@ -3,7 +3,7 @@ import styles from './OnboardingStart.module.css'
 export default function OnboardingStart({heading, children}) { 
     return(
             <div className={styles.container}>
-                <h1>{heading}</h1>
+                <h1 className={styles.header}>{heading}</h1>
                 {children}
             </div>
        
