@@ -3,7 +3,11 @@ import Button from '../Button/Button'
 // custom marker tooltip
 export default function MarkerTooltip({ marker, callback }) {
   // callback function for accepting or declining quest (passes state back to map component)
-  function handleCallback() {
+  function handleAccept() {
+    callback(null)
+  }
+
+  function handleDecline() {
     callback(null)
   }
   return (
@@ -22,8 +26,8 @@ export default function MarkerTooltip({ marker, callback }) {
         />
 
         <div className="buttonbox">
-          <Button onClick={handleCallback}>Accept Quest</Button>
-          <Button onClick={handleCallback}>Decline Quest</Button>
+          <Button onClick={handleAccept}>Accept</Button>
+          <Button onClick={handleDecline}>Decline</Button>
         </div>
       </div>
     </div>
