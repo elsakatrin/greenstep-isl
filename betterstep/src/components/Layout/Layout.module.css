@@ -1,5 +1,5 @@
 .mainWrapper {
-  height: 100dvh;
+  min-height: 100dvh;
   width: 100%;
   background-color: var(--color-second-pale);
   background-repeat: no-repeat;
@@ -11,4 +11,5 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-}
+  padding-bottom: 5.5rem;
+}/*# sourceMappingURL=Layout.module.css.map */
