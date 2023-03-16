@@ -1,13 +1,11 @@
 // quest mode view
-
 import Layout from "@/components/Layout/Layout";
+import Map from "@/components/Map/Map";
 
 export default function Quest() {
     return (
         <>
-            <Layout title="Quest Mode">
-                <h1>Quest</h1>
-            </Layout>
+            <Map />
         </>
     )
 }

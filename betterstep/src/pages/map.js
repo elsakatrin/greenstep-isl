@@ -91,7 +91,7 @@ function LocationPin({ map, loc }) {
             {loc && <Marker map={map} position={loc} icon="https://api.iconify.design/svg-spinners:pulse-rings-multiple.svg" />}
             {/* These are the loaded locations pins from data */}
             {Object.entries(data).map(([key, marker]) => {
-                return <CustomMarker
+                return <Marker
                     key={key}
                     id={marker.id}
                     map={map}

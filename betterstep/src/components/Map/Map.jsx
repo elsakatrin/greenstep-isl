@@ -22,7 +22,7 @@ export default function Map() {
     <Wrapper
       apiKey={process.env.NEXT_PUBLIC_API_KEY}
       version="beta"
-      libraries={['marker', 'routes']}
+      libraries={['marker']}
       render={render}
     />
   )
@@ -59,6 +59,12 @@ function MyMap() {
 
   const ref = React.useRef()
 
+  // React.useEffect(() => {
+  //   setTimeout(() => {
+  //     setData(...myPins)
+  //   }, 2000)
+  // }, [])
+
   // get users current location
   React.useEffect(() => {
     const myLocation = async () => {
@@ -84,16 +90,7 @@ function MyMap() {
   return (
     <>
       <div ref={ref} className="map" />
-      {loc && (
-        <Marker
-          map={map}
-          position={loc}
-          icon="https://api.iconify.design/svg-spinners:pulse-rings-multiple.svg"
-        />
-      )}
-      {selectedMarker && (
-        <MarkerTooltip marker={selectedMarker} callback={callback} />
-      )}
+      {map && <RenderPins map={map} loc={loc} />}
       {map &&
         Object.entries(data).map(([key, marker]) => {
           return (
@@ -112,6 +109,23 @@ function MyMap() {
             />
           )
         })}
+
+      {selectedMarker && (
+        <MarkerTooltip marker={selectedMarker} callback={callback} />
+      )}
+    </>
+  )
+}
+
+function RenderPins({ map, loc }) {
+  console.log('pin was rendered', loc, map)
+  return (
+    <>
+      <Marker
+        map={map}
+        position={loc}
+        icon="https://api.iconify.design/svg-spinners:pulse-rings-multiple.svg"
+      />
     </>
   )
 }
