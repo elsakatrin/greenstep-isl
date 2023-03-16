@@ -1,10 +1,142 @@
-// .container{
-//     width: 324px;
-//     height: 601px;
-//     margin: auto;
-//     display: flex;
-//     justify-content: center;
-//     border-radius: 20px;
-//     background-color: white;
-//     color: black;
-// }
+
+.container{
+    width: clamp(20px, 700px, 90wh);
+    // width: 324px;
+    height: 37.5rem;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    margin: auto;
+    border-radius: 20px;
+    border: 3px solid #E7EAEA;
+}
+
+.modal{
+    width: 20.5rem; 
+}
+
+.heading{
+font-size: 20px;
+text-align: center;
+margin-top: 3.5rem;
+margin-bottom: 5rem;
+
+}
+
+//For each icon to put inside the box
+.icon{
+    box-sizing: border-box;
+    background-color: white;
+    border: 3px solid #e7eaea;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 5.6rem;
+    margin: 1.5px;
+    img{
+        width: 100%;
+    }
+}
+.navicon{
+    box-sizing: border-box;
+    background-color: white;
+    border: 3px solid #e7eaea;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 4.6rem;
+    height: 4.7rem;
+    margin: 1.5px;
+    align-items: center;
+    align-content: center;
+    img{
+        width: 100%;
+    }
+}
+
+//Container for all of the icons
+.naviconscontainer{
+    display: flex;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    padding: 0.6rem;
+}
+
+
+.iconscontainer{
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.6rem;
+    justify-content: center;
+}
+
+
+#prevbtn{
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1em;
+}
+#forwardbtn{
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1em;  
+}
+
+.gameicon{
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bodytxt{
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+.buttoncontainer{
+    position: absolute;
+    margin-top: -5rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    z-index: auto;
+    gap: 5rem;
+}
+
+#forwardbtn{
+    float: right;
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+
+.subhead{
+    font-size: 16px;
+    font-weight: 550;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.bodytxtgreen{
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 16px;
+    color: #627573;
+    text-align: center;
+    font-weight: 550;
+}
+
+

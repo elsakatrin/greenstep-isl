@@ -8,12 +8,12 @@ const supabase = createClient(process.env.NEXT_PUBLIC_PROJECT_CLIENT, process.en
 //       .select('*')
 //   console.log(sites);
 // }
-const logIn = async (email,password) =>{
-    let {data,error} = await supabase.auth.signInWithPassword({
+const logIn = async (email, password) => {
+    let { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
     })
-   console.log(data);  
+    console.log(data);
 }
 
 export const loginService = {

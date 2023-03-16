@@ -19,5 +19,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "^2.1.0"
+  },
+  "devDependencies": {
+    "@ubilabs/google-maps-react-hooks": "^2.0.2"
   }
 }

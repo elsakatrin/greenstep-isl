@@ -1,0 +1,72 @@
+.aboutcontainer {
+  margin-left: 2.2rem;
+  margin-right: 2.2rem;
+  width: clamp(20px, 700px, 90wh);
+}
+
+.heading {
+  margin-top: 4rem;
+  color: black;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.subheading {
+  color: rgba(98, 117, 115, 1);
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 2.2rem;
+  margin-bottom: 2.2rem;
+  font-weight: 600;
+}
+
+.earth {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.middleheading {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  color: rgba(98, 117, 115, 1);
+  line-height: 1.3rem;
+  margin-bottom: 0.7rem;
+  margin-top: 1.4rem;
+}
+.bodytxt {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3rem;
+  letter-spacing: -0.32px;
+  color: #000000;
+}
+
+.list {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  letter-spacing: -0.02rem;
+  color: #000000;
+}
+
+.slogan {
+  color: rgba(98, 117, 115, 1);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.3rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.recycle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

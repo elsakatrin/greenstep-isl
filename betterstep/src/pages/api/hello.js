@@ -1,7 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import dataService from "./dataService"
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  const siteData = await dataService.getAllSites()
   res.status(200).json(
-    { message: 'Welcome to GreenStep' }
+    { data: siteData }
   )
 }
