@@ -7,11 +7,10 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import Image from 'next/image'
-import backicon from "../../public/back.svg"
-import list from "../../public/list-bullets.svg"
-import questionmark from "../../public/questionmark.svg"
-import user from "../../public/user.svg"
-
+import backicon from '../../public/back.svg'
+import list from '../../public/list-bullets.svg'
+import questionmark from '../../public/questionmark.svg'
+import user from '../../public/user.svg'
 
 export default function Navbar({ locations }) {
   const [listView, setListView] = React.useState(false)
@@ -28,7 +27,6 @@ export default function Navbar({ locations }) {
       <div className={styles.navbarWrapper}>
         {listView && <ListView locations={locations} />}
         <nav className={styles.navigation}>
-
           {asPath !== '/mode' && (
             <Link href="/mode">
               <Button>Modes</Button>

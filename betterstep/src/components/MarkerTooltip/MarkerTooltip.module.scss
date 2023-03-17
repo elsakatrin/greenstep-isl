@@ -30,3 +30,16 @@
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
+
+.questBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-prim-faded);
+  border: var(--border-modals);
+}
