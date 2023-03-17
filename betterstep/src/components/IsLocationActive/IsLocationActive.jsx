@@ -1,8 +1,11 @@
 import React from 'react'
 import styles from './IsLocationActive.module.css'
+import useCheckMobileScreen from '@/utils/useCheckMobileScreen.js'
 
 export default function IsLocationActive() {
   const [isLocationActive, setIsLocationActive] = React.useState(true)
+
+  console.log(useCheckMobileScreen())
 
   React.useEffect(() => {
     navigator.permissions

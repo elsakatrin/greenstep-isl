@@ -13,6 +13,7 @@ import positionConverter from '@/utils/positionConverter'
 import watchUserPosition from '@/utils/watchUserPosition'
 import Layout from '../Layout/Layout'
 import Icons from '@/public/icons/icons'
+import useCheckMobileScreen from '@/utils/useCheckMobileScreen.js'
 
 //To Do List:
 // Create API route for getting pins
@@ -44,7 +45,7 @@ const render = (status, dataPoints) => {
     case Status.SUCCESS:
       return (
         <>
-          <IsLocationActive />
+          {!useCheckMobileScreen && <IsLocationActive />}
           <MyMap sites={dataPoints} />
           <Navbar locations={dataPoints} />
         </>
