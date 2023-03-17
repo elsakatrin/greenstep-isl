@@ -11,7 +11,6 @@ export default function LoginView() {
     <>
       <div className={styles.formWrapper}>
         <div className={styles.buttonBox}>
-
           {/* Had to comment out the login/signup because we didn't have enough time  */}
           {/* {mode === 'login' && (
             <Button className={styles.createbtn}onClick={() => setMode('signup')}>Create Account</Button>
@@ -32,14 +31,14 @@ function LoginForm() {
   return (
     <div className={styles.form}>
       <h2 className={styles.h2}>Login</h2>
-      <form className={styles.inputform}> 
+      <form className={styles.inputform}>
         <input className={styles.input} type="text" name="username" />
         <input className={styles.input} type="text" name="password" />
         {/* <Button className={styles.loginbtn} type="submit">Login</Button> */}
       </form>
 
       <Button>
-        <Link href="/onboarding">Shortcut</Link>
+        <Link href="/onboarding">Login</Link>
       </Button>
     </div>
   )
@@ -65,7 +64,7 @@ function SignUpForm() {
   function handleClick(e) {
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
     e.preventDefault()
-    console.log('The link was clicked.')
+
     const { data, error } = useSWR(url, fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>

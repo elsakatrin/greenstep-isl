@@ -5,8 +5,6 @@ import useCheckMobileScreen from '@/utils/useCheckMobileScreen.js'
 export default function IsLocationActive() {
   const [isLocationActive, setIsLocationActive] = React.useState(true)
 
-  console.log(useCheckMobileScreen())
-
   React.useEffect(() => {
     navigator.permissions
       .query({ name: 'geolocation' })

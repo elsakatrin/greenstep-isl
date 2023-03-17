@@ -10,6 +10,7 @@ import Image from 'next/image'
 import backicon from '../../public/back.svg'
 import list from '../../public/list-bullets.svg'
 import questionmark from '../../public/questionmark.svg'
+import globe from '../../public/globe-west.svg'
 import user from '../../public/user.svg'
 
 export default function Navbar({ locations }) {
@@ -29,20 +30,47 @@ export default function Navbar({ locations }) {
         <nav className={styles.navigation}>
           {asPath !== '/mode' && (
             <Link href="/mode">
-              <Button>Modes</Button>
+              <Button>
+                <Image
+                  src={globe}
+                  alt="User profile"
+                  width={50}
+                  height={35}
+                  priority
+                />
+              </Button>
             </Link>
           )}
           {asPath !== '/about' && (
             <Link href="/about">
-              <Button>About</Button>
+              <Button>
+                <Image
+                  src={questionmark}
+                  alt="Explaination"
+                  width={50}
+                  height={35}
+                />
+              </Button>
             </Link>
           )}
           {asPath !== '/user' && (
             <Link href="/user">
-              <Button>User</Button>
+              <Button>
+                <Image src={user} alt="User profile" width={50} height={35} />
+              </Button>
             </Link>
           )}
-          {locations && <Button onClick={handleListView}>List</Button>}
+          {locations && (
+            <Button onClick={handleListView}>
+              {' '}
+              <Image
+                src={list}
+                alt="List of locations"
+                width={50}
+                height={35}
+              />
+            </Button>
+          )}
         </nav>
       </div>
     </>
