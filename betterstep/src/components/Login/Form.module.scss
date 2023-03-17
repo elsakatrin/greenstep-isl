@@ -2,12 +2,19 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   gap: 1rem;
   padding: 1rem;
   border: var(--border-modals);
   background-color: var(--color-prim-faded);
   width: clamp(2ch, 600px, 90%);
   border-radius: var(--border-radius);
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    width: clamp(3ch, 100px, 50%);
+    height: fit-content;
+  }
   h2 {
     margin-bottom: 1rem;
   }
@@ -19,6 +26,11 @@
     width: 100%;
     gap: 1rem;
     margin-top: 2rem;
+
+    input[type='text'],
+    input[type='password'] {
+      padding: 0.2rem 0.5rem;
+    }
 
     input {
       width: 100%;
@@ -42,14 +54,13 @@
 //   margin-bottom: 2rem;
 // }
 
-.shortcut{
+.shortcut {
   font-size: 18px;
   width: 7rem;
   margin-bottom: 3rem;
-  margin-top: 3rem; 
+  margin-top: 3rem;
 }
 
-.h2{
+.h2 {
   font-size: 20px;
-
 }

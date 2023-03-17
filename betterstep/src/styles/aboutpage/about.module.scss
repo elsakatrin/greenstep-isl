@@ -1,7 +1,9 @@
 .aboutcontainer {
-  margin-left: 2.2rem;
-  margin-right: 2.2rem;
-  width: clamp(20px, 700px, 90wh);
+  width: clamp(20px, 700px, 90vw);
+  padding-bottom: 4rem;
+  h1 {
+    text-align: center;
+  }
 }
 
 .heading {

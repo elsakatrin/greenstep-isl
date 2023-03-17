@@ -23,6 +23,10 @@ export default function Navbar({ locations }) {
     setListView(!listView)
   }
 
+  if (asPath === '/onboarding') {
+    return
+  }
+
   return (
     <>
       <div className={styles.navbarWrapper}>

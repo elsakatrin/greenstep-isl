@@ -3,6 +3,8 @@ import useSWR from 'swr'
 import styles from './Form.module.css'
 import Button from '../Button/Button'
 import Link from 'next/link'
+import Logos from '@/public/logo/logo'
+import Image from 'next/image'
 
 export default function LoginView() {
   const [mode, setMode] = React.useState('login') // login | signup
@@ -10,36 +12,38 @@ export default function LoginView() {
   return (
     <>
       <div className={styles.formWrapper}>
-        <div className={styles.buttonBox}>
-          {/* Had to comment out the login/signup because we didn't have enough time  */}
-          {/* {mode === 'login' && (
-            <Button className={styles.createbtn}onClick={() => setMode('signup')}>Create Account</Button>
-          )}
-          {mode === 'signup' && (
-            <Button onClick={() => setMode('login')}>
-              Already have an account? Login instead
-            </Button> */}
-          {/* )} */}
-        </div>
-        {mode === 'signup' ? <SignUpForm /> : <LoginForm />}
+        <Image src={Logos.TextLogo} alt="Greenstep Logo" />
+        <LoginForm />
       </div>
     </>
   )
 }
 
 function LoginForm() {
+  function handleClick(e) {
+    e.preventDefault()
+  }
   return (
     <div className={styles.form}>
       <h2 className={styles.h2}>Login</h2>
       <form className={styles.inputform}>
-        <input className={styles.input} type="text" name="username" />
-        <input className={styles.input} type="text" name="password" />
+        <input
+          className={styles.input}
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
+        <input
+          className={styles.input}
+          type="text"
+          name="password"
+          placeholder="Password"
+        />
         {/* <Button className={styles.loginbtn} type="submit">Login</Button> */}
+        <Button onClick={handleClick}>
+          <Link href="/onboarding">Login</Link>
+        </Button>
       </form>
-
-      <Button>
-        <Link href="/onboarding">Login</Link>
-      </Button>
     </div>
   )
 }
