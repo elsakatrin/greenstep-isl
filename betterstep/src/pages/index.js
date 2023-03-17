@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import LoginView from '@/components/Login/Login'
+import Layout from '@/components/Layout/Layout'
 
 
 // TO DO
@@ -16,7 +17,9 @@ export default function Home() {
 
       </Head>
       <main className={styles.main}>
-        <LoginView />
+        <Layout>
+          <LoginView />
+        </Layout>
       </main>
     </>
   )

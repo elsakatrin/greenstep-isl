@@ -19,14 +19,14 @@
 }
 .listWrapper ul li {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 1rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--color-prim-green);
 }
 .listWrapper ul li span {
-  background-color: var(--color-prim-green);
-  color: var(--color-second-pale);
+  background-color: var(--color-white);
+  color: var(--color-prim-faded);
   padding: 0.2rem 0.5rem;
   border-radius: var(--border-radius);
   width: -moz-fit-content;
@@ -34,4 +34,10 @@
 }
 .listWrapper ul li:last-child {
   border-bottom: none;
+}
+
+.listInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
