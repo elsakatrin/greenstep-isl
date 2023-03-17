@@ -8,7 +8,6 @@ import Image from 'next/image'
 import imagesimport from '../imagesimports'
 // custom marker tooltip
 export default function MarkerTooltip({ marker, callback }) {
-  console.log(marker)
   // callback function for accepting or declining quest (passes state back to map component)
   function handleAccept() {
     callback(null)
@@ -25,7 +24,9 @@ export default function MarkerTooltip({ marker, callback }) {
 
         <span>{marker.sites_master.type_name}</span>
         <p>{marker.description}</p>
+
         <Image src={"https://ssbptdtmzjjavisvxdpp.supabase.co/storage/v1/object/public/sites-photos/"+marker.image+"?t=2023-03-16T18%3A19%3A19.631Z"} alt="Go back" width={200} height={150}/>
+
 
         <div className="buttonbox">
           <Button onClick={handleAccept}>Accept</Button>

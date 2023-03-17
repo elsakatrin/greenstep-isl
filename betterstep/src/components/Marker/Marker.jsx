@@ -2,6 +2,7 @@
 /* global google */
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import Icons from '@/public/icons/icons'
 
 // creates custom marker
 export default function Marker({
@@ -37,9 +38,36 @@ export default function Marker({
 
   React.useEffect(() => {
     rootRef.current.render(children)
+    let myIcon
+    switch (type) {
+      case 'Neighborhood':
+      case 'Square':
+      case 'Museum':
+      case 'Castle':
+      case 'Chathedral':
+      case 'District':
+        myIcon = Icons.Building.src
+        break
+      case 'Restaurant':
+        myIcon = Icons.Food.src
+        break
+      case 'Shopping':
+        myIcon = Icons.Shopping.src
+        break
+      case 'Nature':
+        myIcon = Icons.Nature.src
+        break
+      case 'Beach':
+        myIcon = Icons.Beach.src
+        break
+      default:
+        myIcon = Icons.Building.src
+        break
+    }
+
     markerRef.current.position = position
     markerRef.current.name = name
-    markerRef.current.icon = icon
+    markerRef.current.icon = type ? myIcon : Icons.Location.src
     markerRef.current.type = type
     markerRef.current.map = map
     markerRef.current.id = id

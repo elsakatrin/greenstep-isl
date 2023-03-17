@@ -12,6 +12,7 @@ import styles from './Map.module.css'
 import positionConverter from '@/utils/positionConverter'
 import watchUserPosition from '@/utils/watchUserPosition'
 import Layout from '../Layout/Layout'
+import Icons from '@/public/icons/icons'
 
 //To Do List:
 // Create API route for getting pins
@@ -37,7 +38,7 @@ const render = (status, dataPoints) => {
     case Status.FAILURE:
       return (
         <Layout>
-          <h1>Failure message</h1>
+          <h1>Something Went Wrong</h1>
         </Layout>
       )
     case Status.SUCCESS:
@@ -45,7 +46,7 @@ const render = (status, dataPoints) => {
         <>
           <IsLocationActive />
           <MyMap sites={dataPoints} />
-          <Navbar />
+          <Navbar locations={dataPoints} />
         </>
       )
   }
@@ -75,7 +76,6 @@ function MyMap({ sites }) {
       setMapOptions({ ...mapOptions, center: newLoc })
     }
     myLocation()
-
     setData(sites?.data)
   }, [sites])
 
@@ -92,27 +92,10 @@ function MyMap({ sites }) {
     setSelectedMarker(e)
   }
 
-  // React.useEffect(() => {
-  //   let watch = async () => {
-  //     let userPos = await watchUserPosition()
-  //     setLoc(userPos)
-  //   }
-  //   watch()
-  //   return () => {
-  //     console.log('Clear watch')
-  //   }
-  // }, [])
-
   return (
     <>
       <div ref={ref} className="map" />
-      {map && (
-        <Marker
-          map={map}
-          position={loc}
-          icon="https://api.iconify.design/svg-spinners:pulse-rings-multiple.svg"
-        />
-      )}
+      {map && <Marker map={map} position={loc} icon={Icons.Location.src} />}
 
       {map &&
         data?.map((marker, key) => {
@@ -121,7 +104,7 @@ function MyMap({ sites }) {
               key={key}
               id={marker.id}
               map={map}
-              icon="https://api.iconify.design/codicon:circle-large-filled.svg"
+              icon={Icons.Building.src}
               image={marker.image}
               name={marker.name}
               desc={marker.description}
@@ -206,7 +189,7 @@ let myPins = {
     image:
       'https://polonium209.com/wp-content/uploads/2018/08/20180824_174522.jpg',
     type: 'Shopping',
-    desc: 'VSpend a couple of hours browsing the vintage shops in Las Palmas. Visit Polonium 209 on Carretera del rincón, selling upcycled and pre-owned furniture from the 1940s to 1980s. Admire the items are displayed in a vintage-industrial setting.',
+    desc: 'Spend a couple of hours browsing the vintage shops in Las Palmas. Visit Polonium 209 on Carretera del rincón, selling upcycled and pre-owned furniture from the 1940s to 1980s. Admire the items are displayed in a vintage-industrial setting.',
     id: '13',
     icon: 'https://api.iconify.design/codicon:circle-large-filled.svg',
   },

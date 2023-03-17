@@ -37,8 +37,9 @@ function LoginForm() {
         <input className={styles.input} type="text" name="password" />
         {/* <Button className={styles.loginbtn} type="submit">Login</Button> */}
       </form>
-      <Button className={styles.shortcut}>
-        <Link href="/map">Login</Link>
+
+      <Button>
+        <Link href="/onboarding">Shortcut</Link>
       </Button>
     </div>
   )
