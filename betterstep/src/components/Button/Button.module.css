@@ -11,3 +11,6 @@
   background-color: var(--color-white);
   color: var(--color-prim-green);
 }
+.button:hover img {
+  filter: invert(1);
+}

@@ -11,14 +11,16 @@ export default function LoginView() {
     <>
       <div className={styles.formWrapper}>
         <div className={styles.buttonBox}>
-          {mode === 'login' && (
-            <Button onClick={() => setMode('signup')}>Create Account</Button>
+
+          {/* Had to comment out the login/signup because we didn't have enough time  */}
+          {/* {mode === 'login' && (
+            <Button className={styles.createbtn}onClick={() => setMode('signup')}>Create Account</Button>
           )}
           {mode === 'signup' && (
             <Button onClick={() => setMode('login')}>
               Already have an account? Login instead
-            </Button>
-          )}
+            </Button> */}
+          {/* )} */}
         </div>
         {mode === 'signup' ? <SignUpForm /> : <LoginForm />}
       </div>
@@ -29,12 +31,13 @@ export default function LoginView() {
 function LoginForm() {
   return (
     <div className={styles.form}>
-      <h2>Login</h2>
-      <form>
-        <input type="text" name="username" />
-        <input type="text" name="password" />
-        <Button type="submit">Login</Button>
+      <h2 className={styles.h2}>Login</h2>
+      <form className={styles.inputform}> 
+        <input className={styles.input} type="text" name="username" />
+        <input className={styles.input} type="text" name="password" />
+        {/* <Button className={styles.loginbtn} type="submit">Login</Button> */}
       </form>
+
       <Button>
         <Link href="/onboarding">Shortcut</Link>
       </Button>
@@ -73,6 +76,7 @@ function SignUpForm() {
       <h2>Sign Up</h2>
       <form>
         <input
+          className={input}
           type="text"
           name="username"
           value={userdata.username}
@@ -81,6 +85,7 @@ function SignUpForm() {
           }}
         />
         <input
+          className={input}
           type="text"
           name="email"
           value={userdata.email}
@@ -89,6 +94,7 @@ function SignUpForm() {
           }}
         />
         <input
+          className={input}
           type="text"
           name="password"
           value={userdata.password}
@@ -97,6 +103,7 @@ function SignUpForm() {
           }}
         />
         <input
+          className={input}
           type="text"
           name="confirmPassword"
           value={userdata.confirmPassword}
@@ -104,7 +111,7 @@ function SignUpForm() {
             handleChange(event)
           }}
         />
-        <Button type="submit" onClick={handleClick}>
+        <Button className={signup} type="submit" onClick={handleClick}>
           Sign Up
         </Button>
       </form>
