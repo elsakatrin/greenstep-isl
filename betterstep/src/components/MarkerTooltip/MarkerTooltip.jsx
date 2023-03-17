@@ -20,7 +20,7 @@ export default function MarkerTooltip({ marker, callback }) {
   }
 
   function handleBack() {
-    setMode(false)
+    setMode(true)
   }
 
   return (
@@ -43,7 +43,7 @@ export default function MarkerTooltip({ marker, callback }) {
             />
             <div className="buttonbox">
               <Button onClick={handleAccept}>See Quest</Button>
-              <Button onClick={handleBack}>Back</Button>
+              <Button onClick={handleDecline}>Back</Button>
             </div>
           </>
         )}
@@ -55,7 +55,7 @@ export default function MarkerTooltip({ marker, callback }) {
             </div>
             <CameraCapture />
             <Button onClick={handleDecline}>Complete</Button>
-            <Button onClick={handleDecline}>Back</Button>
+            <Button onClick={handleBack}>Back</Button>
           </>
         )}
       </div>
