@@ -4,6 +4,9 @@ import Link from 'next/link'
 import styles from "../../styles/choosemode/choosemode.module.css"
 
 export default function Choice() {
+    function handleQuest() {
+        alert('Quests are coming soon!')
+    }
     return (
         <>
             <Layout title="Choice">
@@ -13,8 +16,8 @@ export default function Choice() {
                         Explore
                     </Link>
                 </Button>
-                <Button className={styles.choosebtn}>
-                    <Link className={styles.link} href="/mode/quest">
+                <Button className={styles.choosebtn} onClick={handleQuest}>
+                    <Link href="#" className={styles.link}>
                         Quest
                     </Link>
                 </Button>
