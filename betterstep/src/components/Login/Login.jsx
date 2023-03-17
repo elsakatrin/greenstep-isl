@@ -36,7 +36,7 @@ function LoginForm() {
         <Button type="submit">Login</Button>
       </form>
       <Button>
-        <Link href="/map">Shortcut</Link>
+        <Link href="/onboarding">Shortcut</Link>
       </Button>
     </div>
   )

@@ -1,12 +1,12 @@
 .container {
-  width: clamp(20px, 700px, 90wh);
+  width: clamp(20px, 700px, 90vw);
   height: 37.5rem;
   border-radius: 20px;
   background-color: white;
   color: black;
   margin: auto;
   border-radius: 20px;
-  border: 3px solid #E7EAEA;
+  border: 3px solid #e7eaea;
 }
 
 .modal {
@@ -27,9 +27,11 @@
   border-radius: 20px;
   padding: 1rem;
   width: 5.6rem;
+  height: 5.7rem;
   margin: 1.5px;
 }
 .icon img {
+  height: 100%;
   width: 100%;
 }
 
