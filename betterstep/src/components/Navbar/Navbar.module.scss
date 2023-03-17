@@ -9,8 +9,7 @@
   justify-content: center;
   isolation: isolate;
   z-index: 99;
-  bottom: -2rem;
-  height: 7rem;
+  bottom: 1rem;
 
   .navigation {
     border-radius: var(--border-radius);
@@ -19,7 +18,7 @@
     display: flex;
     gap: 1rem;
     padding: 0.6rem 0.75rem;
-      background-color: #627573;
+    background-color: #627573;
   }
 }
 

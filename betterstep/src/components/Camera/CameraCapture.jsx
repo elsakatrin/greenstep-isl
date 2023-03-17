@@ -32,9 +32,11 @@ export default function CameraCapture() {
           onChange={handleChange}
         />
       </label>
-      <div className={styles.previewBox}>
-        <img ref={ref} alt="" width="200" />
-      </div>
+      {image && (
+        <div className={styles.previewBox}>
+          <img ref={ref} alt="" width="200" />
+        </div>
+      )}
     </div>
   )
 }

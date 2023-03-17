@@ -1,7 +1,6 @@
 import styles from './ListView.module.css'
 
 export default function ListView({ locations }) {
-  console.log(locations?.data)
   return (
     <div className={styles.listWrapper}>
       <div className={styles.list}>
