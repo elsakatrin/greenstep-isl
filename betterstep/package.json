@@ -5,16 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
     "@react-google-maps/api": "^2.18.1",
     "@supabase/supabase-js": "^2.11.0",
     "blaze-slider": "^1.9.1",
-    "eslint": "8.35.0",
-    "eslint-config-next": "13.2.3",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-device-detect": "^2.2.3",
