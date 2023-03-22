@@ -1,26 +1,26 @@
-import styles from './MarkerTooltip.module.css'
-import Button from '../Button/Button'
-import CameraCapture from '../Camera/CameraCapture'
-import React from 'react'
-import { imageService } from '@/pages/api/imageService'
-import useSWR from 'swr'
-import Image from 'next/image'
-import imagesimport from '../imagesimports'
+import styles from "./MarkerTooltip.module.css";
+import Button from "../Button/Button";
+import CameraCapture from "../Camera/CameraCapture";
+import React from "react";
+import { imageService } from "@/pages/api/imageService";
+import useSWR from "swr";
+import Image from "next/image";
+import imagesimport from "../imagesimports";
 // custom marker tooltip
-export default function MarkerTooltip({ marker, callback }) {
-  const [mode, setMode] = React.useState(true) // boolean
+export function MarkerTooltip({ marker, callback }) {
+  const [mode, setMode] = React.useState(true); // boolean
 
   // callback function for accepting or declining quest (passes state back to map component)
   function handleAccept() {
-    setMode(false)
+    setMode(false);
   }
 
   function handleDecline() {
-    callback(null)
+    callback(null);
   }
 
   function handleBack() {
-    setMode(true)
+    setMode(true);
   }
 
   return (
@@ -33,9 +33,9 @@ export default function MarkerTooltip({ marker, callback }) {
             <p>{marker.description}</p>
             <Image
               src={
-                'https://ssbptdtmzjjavisvxdpp.supabase.co/storage/v1/object/public/sites-photos/' +
+                "https://ssbptdtmzjjavisvxdpp.supabase.co/storage/v1/object/public/sites-photos/" +
                 marker.image +
-                '?t=2023-03-16T18%3A19%3A19.631Z'
+                "?t=2023-03-16T18%3A19%3A19.631Z"
               }
               alt="Go back"
               width={200}
@@ -60,5 +60,5 @@ export default function MarkerTooltip({ marker, callback }) {
         )}
       </div>
     </div>
-  )
+  );
 }

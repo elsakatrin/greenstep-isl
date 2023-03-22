@@ -1,50 +1,69 @@
 .listWrapper {
+  position: relative;
   border: var(--border-modals);
-  background-color: var(--color-second-pale);
+  background-color: white;
   color: var(--color-prim-green);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  padding: 1rem;
-  max-height: 70vh;
+  max-height: 85vh;
   overflow: scroll;
-  width: clamp(2ch, 700px, 90vw);
 }
-.listWrapper ul {
-  list-style: none;
+.listWrapper .list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
+  row-gap: 32px;
+  padding-bottom: 2rem;
 }
-.listWrapper ul li {
+.listWrapper h2 {
+  /* margin-top: 2rem; */
+  margin-top: 120px;
+  margin-left: 2rem;
+  position: relative;
+  color: black;
+  font-size: 18px;
+  font-weight: semibold;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+.listWrapper .card {
+  position: relative;
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 1rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--color-prim-green);
+  flex-direction: column;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  border-radius: 20px;
+  background-color: white;
+  max-width: 323px;
+  z-index: 1;
 }
-.listWrapper ul li span {
-  background-color: var(--color-white);
-  color: var(--color-prim-faded);
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--border-radius);
-  width: -moz-fit-content;
-  width: fit-content;
+.listWrapper .image img {
+  width: 100%;
+  height: 110px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
-.listWrapper ul li:last-child {
-  border-bottom: none;
+.listWrapper h3 {
+  font-size: 16px;
+  color: var(--color-prim-green);
+}
+.listWrapper p {
+  font-size: 14px;
 }
 
 .listInfo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.5rem;
+  padding: 10px;
 }
 
 @media screen and (max-width: 768px) {
   .listWrapper ul li {
     flex-direction: column;
   }
-}/*# sourceMappingURL=ListView.module.css.map */
+} /*# sourceMappingURL=ListView.module.css.map */
