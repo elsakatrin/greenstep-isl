@@ -2,19 +2,40 @@ import { useState } from "react";
 import styles from "./ListView.module.css";
 import Image from "next/image";
 import { Backdrop } from "./Backdrop/Backdrop";
-import Marker from "../Marker/Marker";
-import { MyMap } from "../Map/Map";
+import { useEffect } from "react";
 
-export default function ListView({ locations }) {
+export default function ListView({ locations, handleListView, setCenter }) {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
-  const handleCardClick = (location) => {
-    setSelectedLocation(location);
+  const handleCardClick = (location, event) => {
+    event.stopPropagation();
+    const latLng = {
+      lat: location.sites_locations.lng,
+      lng: location.sites_locations.lat,
+    };
+    setCenter(latLng);
+    setSelectedLocation(location, latLng);
+    handleListView();
+    console.log(location);
   };
 
   const handleCloseTooltip = () => {
     setSelectedLocation(null);
   };
+
+  useEffect(() => {
+    const handleClickOutsideMarker = (event) => {
+      if (selectedLocation && !event.target.closest(".marker")) {
+        setSelectedLocation(null);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutsideMarker);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutsideMarker);
+    };
+  }, [selectedLocation]);
 
   return (
     <div className={styles.listWrapper}>
@@ -25,7 +46,7 @@ export default function ListView({ locations }) {
           <div
             key={location.id}
             className={styles.card}
-            onClick={() => handleCardClick(location)}
+            onClick={(event) => handleCardClick(location, event)}
           >
             <div className={styles.image}>
               <Image
@@ -43,27 +64,6 @@ export default function ListView({ locations }) {
               <p>{location.sites_master.type_name}</p>
               <h3>{location.name}</h3>
             </div>
-            {selectedLocation && (
-              <MyMap
-                center={{
-                  lat: selectedLocation.latitude,
-                  lng: selectedLocation.longitude,
-                }}
-                zoom={15}
-              >
-                <Marker
-                  position={{
-                    lat: selectedLocation.latitude,
-                    lng: selectedLocation.longitude,
-                  }}
-                  name={selectedLocation.name}
-                  type={selectedLocation.sites_master.type_name}
-                  onClick={handleCloseTooltip}
-                >
-                  <div>{selectedLocation.name}</div>
-                </Marker>
-              </MyMap>
-            )}
           </div>
         ))}
       </div>
