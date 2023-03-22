@@ -2,12 +2,10 @@ import styles from "./MarkerTooltip.module.css";
 import Button from "../Button/Button";
 import CameraCapture from "../Camera/CameraCapture";
 import React from "react";
-import { imageService } from "@/pages/api/imageService";
-import useSWR from "swr";
 import Image from "next/image";
-import imagesimport from "../imagesimports";
+
 // custom marker tooltip
-export function MarkerTooltip({ marker, callback }) {
+export default function MarkerTooltip({ marker, callback }) {
   const [mode, setMode] = React.useState(true); // boolean
 
   // callback function for accepting or declining quest (passes state back to map component)

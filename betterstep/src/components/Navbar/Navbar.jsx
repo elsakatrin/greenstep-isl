@@ -27,7 +27,7 @@ export default function Navbar({ locations, setCenter }) {
   if (asPath === "/onboarding") {
     return;
   }
-  
+
   return (
     <>
       <div className={styles.navbarWrapper}>
@@ -42,29 +42,29 @@ export default function Navbar({ locations, setCenter }) {
         <nav className={styles.navigation}>
           {asPath && (
             <Link href="/mode">
-              <Button onClick="window.location.reload();">
+              <Button onClick={window.location.reload}>
                 <Image
                   src={globe}
                   alt="backgroundMap"
                   width={50}
                   height={35}
                   priority
-                  />
+                />
               </Button>
             </Link>
           )}
-                  {locations && (
-                    <Button onClick={handleListView}>
-                      {' '}
-                      <Image
-                        src={list}
-                        alt="List of locations"
-                        width={50}
-                        height={35}
-                      />
-                    </Button>
-                  )}
-                  
+          {locations && (
+            <Button onClick={handleListView}>
+              {" "}
+              <Image
+                src={list}
+                alt="List of locations"
+                width={50}
+                height={35}
+              />
+            </Button>
+          )}
+
           {asPath !== "/about" && (
             <Link href="/about">
               <Button>
@@ -84,8 +84,18 @@ export default function Navbar({ locations, setCenter }) {
               </Button>
             </Link>
           )}
-          
-        
+
+          {locations && (
+            <Button onClick={handleListView}>
+              {" "}
+              <Image
+                src={list}
+                alt="List of locations"
+                width={50}
+                height={35}
+              />
+            </Button>
+          )}
         </nav>
       </div>
     </>

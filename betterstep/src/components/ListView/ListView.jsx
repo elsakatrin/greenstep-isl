@@ -8,19 +8,16 @@ export default function ListView({ locations, handleListView, setCenter }) {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   const handleCardClick = (location, event) => {
-    event.stopPropagation();
     const latLng = {
-      lat: location.sites_locations.lng,
+      lat: location.sites_locations.lng, // it's reversed in the database
       lng: location.sites_locations.lat,
     };
     setCenter(latLng);
+    if (window.google && window.google.map) {
+      window.google.map.setCenter(latLng);
+    }
     setSelectedLocation(location, latLng);
     handleListView();
-    console.log(location);
-  };
-
-  const handleCloseTooltip = () => {
-    setSelectedLocation(null);
   };
 
   useEffect(() => {
