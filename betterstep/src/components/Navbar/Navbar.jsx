@@ -1,38 +1,39 @@
-import styles from './Navbar.module.css'
-import Link from 'next/link'
-import Button from '../Button/Button'
-import ListView from '../ListView/ListView'
-import React from 'react'
+import styles from "./Navbar.module.css";
+import Link from "next/link";
+import Button from "../Button/Button";
+import ListView from "../ListView/ListView";
+import React from "react";
+import { MyMap } from "../Map/Map";
 
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
-import Image from 'next/image'
-import backicon from '../../public/back.svg'
-import list from '../../public/list-bullets.svg'
-import questionmark from '../../public/questionmark.svg'
-import globe from '../../public/globe-west.svg'
-import user from '../../public/user.svg'
+import Image from "next/image";
+import backicon from "../../public/back.svg";
+import list from "../../public/list-bullets.svg";
+import questionmark from "../../public/questionmark.svg";
+import globe from "../../public/globe-west.svg";
+import user from "../../public/user.svg";
 
 export default function Navbar({ locations }) {
-  const [listView, setListView] = React.useState(false)
+  const [listView, setListView] = React.useState(false);
 
-  const { asPath } = useRouter()
-  console.log(asPath)
+  const { asPath } = useRouter();
+  console.log(asPath);
 
   function handleListView() {
-    setListView(!listView)
+    setListView(!listView);
   }
 
-  if (asPath === '/onboarding') {
-    return
+  if (asPath === "/onboarding") {
+    return;
   }
 
   return (
     <>
       <div className={styles.navbarWrapper}>
-        {listView && <ListView locations={locations} />}
+        {listView && <ListView locations={locations} MyMap={MyMap} />}
         <nav className={styles.navigation}>
-          {asPath !== '/mode' && (
+          {asPath !== "/mode" && (
             <Link href="/mode">
               <Button>
                 <Image
@@ -45,7 +46,7 @@ export default function Navbar({ locations }) {
               </Button>
             </Link>
           )}
-          {asPath !== '/about' && (
+          {asPath !== "/about" && (
             <Link href="/about">
               <Button>
                 <Image
@@ -57,7 +58,7 @@ export default function Navbar({ locations }) {
               </Button>
             </Link>
           )}
-          {asPath !== '/user' && (
+          {asPath !== "/user" && (
             <Link href="/user">
               <Button>
                 <Image src={user} alt="User profile" width={50} height={35} />
@@ -66,7 +67,7 @@ export default function Navbar({ locations }) {
           )}
           {locations && (
             <Button onClick={handleListView}>
-              {' '}
+              {" "}
               <Image
                 src={list}
                 alt="List of locations"
@@ -78,5 +79,5 @@ export default function Navbar({ locations }) {
         </nav>
       </div>
     </>
-  )
+  );
 }
