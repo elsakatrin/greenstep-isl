@@ -78,17 +78,7 @@ export default function Navbar({ locations }) {
             </Link>
           )}
           
-          {locations && (
-            <Button onClick={handleListView}>
-              {" "}
-              <Image
-                src={list}
-                alt="List of locations"
-                width={50}
-                height={35}
-              />
-            </Button>
-          )}
+        
         </nav>
       </div>
     </>

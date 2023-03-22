@@ -176,12 +176,13 @@ export default function Onboarding() {
                                 </button>
                             </div>
                                 ):null}
-                            
+                            {pageNumber <4 ? (
                             <div className = {styles.dots}>
                               <span className={pageNumber < 2? styles.dotdark: styles.dot}></span>
                               <span className={pageNumber === 2? styles.dotdark: styles.dot}></span>
                               <span className={pageNumber === 3? styles.dotdark: styles.dot}></span>
                             </div>
+                            ):null}
                         </div>
                     </div>
 
