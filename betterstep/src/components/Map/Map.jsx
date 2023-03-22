@@ -24,36 +24,39 @@ export default function Map({ dataPoints }) {
   // everything is rendered via the render function
   const [center, setCenter] = useState({ lat: 0, lng: 0 });
 
+  const render = React.useCallback(
+    (status) => {
+      switch (status) {
+        case Status.LOADING:
+          return <Spinner />;
+        case Status.FAILURE:
+          return (
+            <Layout>
+              <h1>Something Went Wrong</h1>
+            </Layout>
+          );
+        case Status.SUCCESS:
+          return (
+            <>
+              {!useCheckMobileScreen && <IsLocationActive />}
+              <MyMap sites={dataPoints} center={center} />
+              <Navbar locations={dataPoints} setCenter={setCenter} />
+            </>
+          );
+      }
+    },
+    [center, dataPoints]
+  );
+
   return (
     <Wrapper
       apiKey={process.env.NEXT_PUBLIC_API_KEY}
       version="beta"
       libraries={["marker"]}
-      render={(status) => render(status, dataPoints, center, setCenter)}
+      render={render}
     />
   );
 }
-
-const render = (status, dataPoints, center, setCenter) => {
-  switch (status) {
-    case Status.LOADING:
-      return <Spinner />;
-    case Status.FAILURE:
-      return (
-        <Layout>
-          <h1>Something Went Wrong</h1>
-        </Layout>
-      );
-    case Status.SUCCESS:
-      return (
-        <>
-          {!useCheckMobileScreen && <IsLocationActive />}
-          <MyMap sites={dataPoints} center={center} />
-          <Navbar locations={dataPoints} setCenter={setCenter} />
-        </>
-      );
-  }
-};
 
 export function MyMap({ sites, center }) {
   const [map, setMap] = React.useState(); // map to render and render to
@@ -88,7 +91,11 @@ export function MyMap({ sites, center }) {
 
   // If location is found, render map
   React.useEffect(() => {
-    loc && setMap(new window.google.maps.Map(ref.current, mapOptions));
+    if (map) {
+      map.setCenter(mapOptions.center);
+    } else {
+      loc && setMap(new window.google.maps.Map(ref.current, mapOptions));
+    }
   }, [mapOptions]);
 
   const callback = (payload) => {
@@ -102,13 +109,14 @@ export function MyMap({ sites, center }) {
   return (
     <>
       <div ref={ref} className="map" />
+
       {map && <Marker map={map} position={loc} icon={Icons.Location.src} />}
 
       {map &&
-        data?.map((marker, key) => {
+        data?.map((marker) => {
           return (
             <Marker
-              key={key}
+              key={marker.id}
               id={marker.id}
               map={map}
               icon={Icons.Building.src}
