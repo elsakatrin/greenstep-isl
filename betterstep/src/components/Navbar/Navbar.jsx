@@ -24,6 +24,12 @@ export default function Navbar({ locations, setCenter }) {
     setListView(!listView);
   }
 
+  function reload() {
+    if (typeof window !== "undefined") {
+      window.location.reload();
+    }
+  }
+
   if (asPath === "/onboarding") {
     return;
   }
@@ -42,7 +48,7 @@ export default function Navbar({ locations, setCenter }) {
         <nav className={styles.navigation}>
           {asPath && (
             <Link href="/mode">
-              <Button onClick={window.location.reload}>
+              <Button onClick={reload}>
                 <Image
                   src={globe}
                   alt="backgroundMap"
