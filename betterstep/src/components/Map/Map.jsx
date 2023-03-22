@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* global google */
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import getCurrentLocation from "@/utils/getCurrentLocation";
 import Navbar from "../Navbar/Navbar";
 import Spinner from "../Spinner/Spinner";
@@ -22,17 +22,19 @@ import useCheckMobileScreen from "@/utils/useCheckMobileScreen.js";
 
 export default function Map({ dataPoints }) {
   // everything is rendered via the render function
+  const [center, setCenter] = useState({ lat: 0, lng: 0 });
+
   return (
     <Wrapper
       apiKey={process.env.NEXT_PUBLIC_API_KEY}
       version="beta"
       libraries={["marker"]}
-      render={(status) => render(status, dataPoints)}
+      render={(status) => render(status, dataPoints, center, setCenter)}
     />
   );
 }
 
-const render = (status, dataPoints) => {
+const render = (status, dataPoints, center, setCenter) => {
   switch (status) {
     case Status.LOADING:
       return <Spinner />;
@@ -46,14 +48,14 @@ const render = (status, dataPoints) => {
       return (
         <>
           {!useCheckMobileScreen && <IsLocationActive />}
-          <MyMap sites={dataPoints} />
-          <Navbar locations={dataPoints} />
+          <MyMap sites={dataPoints} center={center} />
+          <Navbar locations={dataPoints} setCenter={setCenter} />
         </>
       );
   }
 };
 
-export function MyMap({ sites }) {
+export function MyMap({ sites, center }) {
   const [map, setMap] = React.useState(); // map to render and render to
   const [loc, setLoc] = React.useState(); // current user location
   const [targetLocation, setTargetLocation] = React.useState(); // target location
@@ -68,6 +70,10 @@ export function MyMap({ sites }) {
   }); // map options
 
   const ref = React.useRef();
+
+  useEffect(() => {
+    setMapOptions({ ...mapOptions, center: center });
+  }, [center]);
 
   // get users current location
   React.useEffect(() => {

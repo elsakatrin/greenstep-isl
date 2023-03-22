@@ -14,7 +14,7 @@ import questionmark from "../../public/questionmark.svg";
 import globe from "../../public/globe-west.svg";
 import user from "../../public/user.svg";
 
-export default function Navbar({ locations }) {
+export default function Navbar({ locations, setCenter }) {
   const [listView, setListView] = React.useState(false);
 
   const { asPath } = useRouter();
@@ -31,7 +31,14 @@ export default function Navbar({ locations }) {
   return (
     <>
       <div className={styles.navbarWrapper}>
-        {listView && <ListView locations={locations} MyMap={MyMap} />}
+        {listView && (
+          <ListView
+            locations={locations}
+            handleListView={handleListView}
+            MyMap={MyMap}
+            setCenter={setCenter}
+          />
+        )}
         <nav className={styles.navigation}>
           {asPath && (
             <Link href="/mode">
