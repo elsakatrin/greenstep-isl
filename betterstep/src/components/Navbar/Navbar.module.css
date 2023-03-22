@@ -9,7 +9,7 @@
   justify-content: center;
   isolation: isolate;
   z-index: 99;
-  bottom: 1rem;
+  margin-bottom: -1.5rem;
 }
 .navbarWrapper .navigation {
   border-radius: var(--border-radius);
@@ -25,4 +25,4 @@
   position: absolute;
   left: 1rem;
   bottom: 1rem;
-}
+}/*# sourceMappingURL=Navbar.module.css.map */

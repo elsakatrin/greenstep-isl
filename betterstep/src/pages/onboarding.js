@@ -5,7 +5,7 @@ import styles from '../components/OnboardingWrapper/OnboardingWrapper.module.css
 import Button from "@/components/Button/Button"
 import BlazeSlider from 'blaze-slider'
 import 'blaze-slider/dist/blaze.css'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import exploreicon from "../public/explore-icon.svg"
 import backicon from "../public/back-green.svg"
@@ -33,7 +33,11 @@ import Link from "next/link"
 export default function Onboarding() {
     //To make the slider work from side to side
     //Gotten from here https://blaze-slider.dev/docs 
+    const [pageNumber, setPageNumber] = useState(0)
+    const [activePage, setActivePage] = useState(false)
+
     useEffect(() => {
+        
         const el = document.querySelector('.blaze-slider')
 
         const slider = new BlazeSlider(el, {
@@ -50,9 +54,21 @@ export default function Onboarding() {
             },
         }
         )
-    });
+        const unsubscribe = slider.onSlide((i,f,l)=> {
+            console.log("i", i)
+            console.log("pageNumber", pageNumber)
+           
+        
+            setPageNumber(i+1)
+        })
+        return () => {
+        //unsubscribe()
+        } 
+    }, []);
 
-
+    
+    
+    
     return (
         <>
             <Layout title="Onboarding">
@@ -82,14 +98,16 @@ export default function Onboarding() {
                                                 <Image src={user} alt="User profile" width={115} height={35} />
                                             </div>
                                         </div>
+
+                                       
                                     </OnboardingWrapper>
 
 
-                                    <OnboardingWrapper heading="Join a quest">
+                                    {/*<OnboardingWrapper heading="Join a quest">
                                         <Image className={styles.gameicon} src={questicon} alt="Quest example" width={115} height={48} />
                                         <p className={styles.bodytxt} >It’s a game! You can choose what activity you want to use, and you only get one location at a time. When arriving to a location you get a task that you have to complete to keep going on your journey. You also get side quests that you can visit
                                             When you’ve finished your quest you get information about your accomplishments and even share them with your friends!  </p>
-                                    </OnboardingWrapper>
+    </OnboardingWrapper>*/}
 
 
                                     <OnboardingWrapper heading="The icons">
@@ -125,6 +143,8 @@ export default function Onboarding() {
                                                 <Image src={bar} alt="Bar" width={115} height={48} />
                                             </div>
                                         </div>
+                                    
+                                        
                                     </OnboardingWrapper>
 
 
@@ -133,6 +153,8 @@ export default function Onboarding() {
                                         <p className={styles.bodytxt} >Environmental sustainability is the ability to maintain an ecological balance in our planet's natural environment and conserve natural resources to support the wellbeing of current and future generations.</p>
                                         <p className={styles.bodytxt} >When exploring we want you to walk or use sustainable transportation when exploring your surroundings, don’t litter and remember to respect the environment. </p>
                                         <p className={styles.bodytxtgreen} >There's no planet B</p>
+
+                                       
                                     </OnboardingWrapper>
 
                                     <OnboardingStart heading="Are you ready to take a green step?">
@@ -142,20 +164,28 @@ export default function Onboarding() {
 
                                 </div>
                             </div>
+                            {pageNumber < 4? (
 
-                            <div className={styles.buttoncontainer}>
-                                <button className="blaze-prev" id={styles.prevbtn}>
+                                <div className={styles.buttoncontainer}>
+                                <button  className="blaze-prev" id={styles.prevbtn}>
                                     <Image src={back} alt="back" width={48} height={48} />
                                 </button>
-                                <button className="blaze-next" id={styles.forwardbtn}>
-                                    <Image src={forward} alt="back" width={48} height={48} />
+    
+                                <button  className="blaze-next" id={styles.forwardbtn}>
+                                    <Image src={forward} alt="forward" width={48} height={48} />
                                 </button>
                             </div>
-
+                                ):null}
+                            
+                            <div className = {styles.dots}>
+                              <span className={pageNumber < 2? styles.dotdark: styles.dot}></span>
+                              <span className={pageNumber === 2? styles.dotdark: styles.dot}></span>
+                              <span className={pageNumber === 3? styles.dotdark: styles.dot}></span>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="blaze-pagination"></div>
+                    <div className="blaze-pagination" ></div>
 
                 </div>
 
