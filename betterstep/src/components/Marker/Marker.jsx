@@ -60,9 +60,21 @@ export default function Marker({
       case 'Beach':
         myIcon = Icons.Beach.src
         break
-      default:
-        myIcon = Icons.Building.src
+      case 'Views':
+        myIcon = Icons.Views.src
         break
+      case 'House':
+        myIcon = Icons.House.src
+        break
+      case 'Church':
+        myIcon = Icons.Church.src
+        break
+      default:
+        myIcon = Icons.LocationPoint.src
+        break
+
+
+
     }
 
     markerRef.current.position = position
