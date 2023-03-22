@@ -27,25 +27,37 @@ export default function Navbar({ locations }) {
   if (asPath === "/onboarding") {
     return;
   }
-
+  
   return (
     <>
       <div className={styles.navbarWrapper}>
         {listView && <ListView locations={locations} MyMap={MyMap} />}
         <nav className={styles.navigation}>
-          {asPath !== "/mode" && (
+          {asPath && (
             <Link href="/mode">
-              <Button>
+              <Button onClick="window.location.reload();">
                 <Image
                   src={globe}
-                  alt="User profile"
+                  alt="backgroundMap"
                   width={50}
                   height={35}
                   priority
-                />
+                  />
               </Button>
             </Link>
           )}
+                  {locations && (
+                    <Button onClick={handleListView}>
+                      {' '}
+                      <Image
+                        src={list}
+                        alt="List of locations"
+                        width={50}
+                        height={35}
+                      />
+                    </Button>
+                  )}
+                  
           {asPath !== "/about" && (
             <Link href="/about">
               <Button>
@@ -65,6 +77,7 @@ export default function Navbar({ locations }) {
               </Button>
             </Link>
           )}
+          
           {locations && (
             <Button onClick={handleListView}>
               {" "}
