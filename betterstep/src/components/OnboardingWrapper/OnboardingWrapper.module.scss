@@ -1,7 +1,7 @@
 .container {
   width: clamp(20px, 700px, 90vw);
   // width: 324px;
-  height: 37.5rem;
+  height: 39.7rem;
   border-radius: 20px;
   background-color: white;
   color: black;
@@ -70,6 +70,7 @@
   flex-wrap: wrap;
   padding: 0.6rem;
   justify-content: center;
+
 }
 
 #prevbtn {
@@ -77,14 +78,16 @@
   border: none;
   padding: 0;
   font-size: 1em;
+
 }
 #forwardbtn {
   background: none;
   border: none;
   padding: 0;
   font-size: 1em;
-}
 
+}
+//Explore icon
 .gameicon {
   margin-top: 1.7rem;
   margin-bottom: 1.7rem;
@@ -100,6 +103,24 @@
   margin-bottom: 2rem;
   font-size: 1rem;
 }
+//body text in sustainability section
+.bodytxtsust{
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+//Click on icons to see what they mean
+.explain{
+  font-size: 0.7rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
+  text-align: left
+}
+//Previous og forward buttons
 .buttoncontainer {
   position: absolute;
   margin-top: -5rem;
@@ -115,7 +136,7 @@
   margin-left: 7rem;
   margin-right: 7rem;
 }
-
+//Sub header 
 .subhead {
   font-size: 16px;
   font-weight: 550;
@@ -125,17 +146,18 @@
   margin-bottom: 2rem;
   font-size: 1rem;
 }
-
+//Green text in sustainability section
 .bodytxtgreen {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
   font-size: 16px;
   color: #627573;
   text-align: center;
   font-weight: 550;
 }
+//Page slide dots
 .dots {
   justify-content: center;
   display: flex;
@@ -158,3 +180,74 @@
   border-radius: 50%;
   display: inline-block;
 }
+
+//CSS for the hover effect on the icons that reveal explainations of what the icons mean
+
+//Navbar icon explainations (page 1 onboarding)
+.navicon:hover{ 
+  background-color: #627573; //Change the fill color when the div is hovered over 
+  border: 3px solid #627573; 
+}
+
+.navicon:hover img + .hovertxt {
+  display: block; //Show the text when the div is hovered over
+ 
+}
+.navicon:hover img{
+  display: none; //Makes icon dissapear on hover
+}
+.hovertxt {
+  text-align: center;
+  display: none; // the text appears below and I tried to use !important to overwrite that but then the text doesnt appear while hovering
+  color: #ffffff;
+  font-size: 0.90rem;
+  display: flex;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+}
+#home{
+  margin-top: 35%;
+  margin-bottom: 50%;
+}
+#profile {
+  margin-top: 15%;
+  margin-bottom: 50%;
+}
+
+//Icons on page two of onboarding
+.icon:hover{ 
+  background-color: #627573; //Change the fill color when the div is hovered over 
+  border: 3px solid #627573; 
+}
+.icon:hover img + .hovertxtpg2 {
+  display: block; //Show the text when the div is hovered over
+  justify-content: center;
+}
+.icon:hover img{
+  display: none; //Makes icon dissapear on hover
+}
+.hovertxtpg2{
+  text-align: center;
+  display: none;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30%;
+  margin-bottom: 50%;
+}
+#shopping, #restaurants{ //These are not centering 
+  text-align: center;
+  margin-right: -1rem;
+}
+#museum {
+  margin-top: 6%;
+  margin-bottom: 50%;
+}
+#bars{
+  margin-top: 18%;
+  margin-bottom: 50%;
+}
+
