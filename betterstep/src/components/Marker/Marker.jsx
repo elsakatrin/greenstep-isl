@@ -69,6 +69,12 @@ export default function Marker({
       case 'Church':
         myIcon = Icons.Church.src
         break
+      case 'Coffee':
+        myIcon = Icons.Coffee.src
+        break
+      case 'Bar':
+        myIcon = Icons.Bar.src
+        break
       default:
         myIcon = Icons.LocationPoint.src
         break

@@ -21,10 +21,10 @@ import history from "../public/history.svg"
 import restaurant from "../public/restaurant.svg"
 import cafe from "../public/coffee.svg"
 import bar from "../public/bar.svg"
-import questicon from "../public/quest-icon.svg"
 import back from "../public/arrow-left-green.svg"
 import forward from "../public/arrow-right-green.svg"
-import Link from "next/link"
+import earth from "../public/navicons/earth-icon.svg"
+import shopping from "../public/shopping.svg"
 
 
 
@@ -40,6 +40,7 @@ export default function Onboarding() {
         
         const el = document.querySelector('.blaze-slider')
 
+        //Setting from the library, only one slide showing no matter the screen size
         const slider = new BlazeSlider(el, {
             all: {
                 slidesToShow: 1,
@@ -68,7 +69,8 @@ export default function Onboarding() {
 
     
     
-    
+    //Onboarding slides, each component helds one slide 
+    //Last component is another component called 'onboardingstart' because it has a start button - maybe not the best naming convention but it made sense when I did it 
     return (
         <>
             <Layout title="Onboarding">
@@ -84,63 +86,78 @@ export default function Onboarding() {
 
                                         <p className={styles.bodytxt}>When choosing explore you get to choose what kind of activity you want to do! You get a plan of your explorations, you can see the locations and information about all the interesting places you’re about to visit.
                                             When you’ve finished exploring you get information about your accomplishments!</p>
+                                            <p className={styles.explain}>Click on the icons to see what they mean</p>
                                         <div className={styles.naviconscontainer}>
+
                                             <div className={styles.navicon}>
-                                                <Image src={backicon} alt="Go back" width={115} height={35} />
+                                                <Image src={earth} alt="Go back" width={115} height={35} />
+                                                <span className={styles.hovertxt} id={styles.home}>Home</span>
                                             </div>
                                             <div className={styles.navicon}>
                                                 <Image src={list} alt="List of all places" width={115} height={35} />
+                                                <span className={styles.hovertxt}>List of all places</span>
                                             </div>
                                             <div className={styles.navicon}>
                                                 <Image src={questionmark} alt="Explainations for app" width={115} height={35} />
+                                                <span className={styles.hovertxt}>About this app</span>
                                             </div>
                                             <div className={styles.navicon}>
                                                 <Image src={user} alt="User profile" width={115} height={35} />
+                                                <span className={styles.hovertxt} id={styles.profile}>Your profile</span>
                                             </div>
                                         </div>
-
-                                       
                                     </OnboardingWrapper>
 
 
+                                    {/* This section is commented out for future use when the Quest game will be implemented */}
                                     {/*<OnboardingWrapper heading="Join a quest">
                                         <Image className={styles.gameicon} src={questicon} alt="Quest example" width={115} height={48} />
                                         <p className={styles.bodytxt} >It’s a game! You can choose what activity you want to use, and you only get one location at a time. When arriving to a location you get a task that you have to complete to keep going on your journey. You also get side quests that you can visit
                                             When you’ve finished your quest you get information about your accomplishments and even share them with your friends!  </p>
-    </OnboardingWrapper>*/}
+                                     </OnboardingWrapper>*/}
 
 
                                     <OnboardingWrapper heading="The icons">
                                         {/* <p className={styles.bodytxt} >What do all the icons mean? We’ll walk you through it.</p> */}
                                         <p className={styles.bodytxt}>You'll see these icons when you explore, they tell you what kind of a place you're looking at!</p>
+                                            <p className={styles.explain}>Click on the icons to see what they mean</p>
                                         <div className={styles.iconscontainer}>
 
                                             <div className={styles.icon}>
-                                                <Image src={ocean} alt="Beach" className="" width={115} height={48} />
+                                                <Image src={ocean} alt="Beach"  width={115} height={48} />
+                                                <span className={styles.hovertxtpg2}>Beach</span>
                                             </div>
                                             <div className={styles.icon}>
                                                 <Image src={nature} alt="Nature" width={115} height={48} />
+                                                <span className={styles.hovertxtpg2}>Nature</span>
                                             </div>
                                             <div className={styles.icon}>
-                                                <Image src={park} alt="Parks" width={115} height={48} />
+                                                <Image src={shopping} alt="Shopping" width={115} height={48} />
+                                                <span className={styles.hovertxtpg2} id={styles.shopping}>Shopping</span>
                                             </div>
                                             <div className={styles.icon}>
                                                 <Image src={views} alt="Views" width={115} height={48} />
+                                                <span className={styles.hovertxtpg2}>Views</span>
                                             </div>
                                             <div className={styles.icon}>
                                                 <Image src={church} alt="Church" width={115} height={48} />
+                                                <span className={styles.hovertxtpg2}>Church</span>
                                             </div>
                                             <div className={styles.icon}>
-                                                <Image src={history} alt="History" width={115} height={48} />
+                                                <Image src={history} alt="Museum" width={115} height={48} />
+                                                <span className={styles.hovertxtpg2} id={styles.museum}>Museums and buildings</span>
                                             </div>
                                             <div className={styles.icon}>
                                                 <Image src={restaurant} alt="Restaurant" width={115} height={48} />
+                                                <span className={styles.hovertxtpg2} id={styles.restaurant} >Restaurants</span>
                                             </div>
                                             <div className={styles.icon}>
-                                                <Image src={cafe} alt="Café" width={115} height={48} />
+                                                <Image src={cafe} alt="Café" width={118} height={56} />
+                                                <span className={styles.hovertxtpg2}>Cafés</span>
                                             </div>
                                             <div className={styles.icon}>
-                                                <Image src={bar} alt="Bar" width={115} height={48} />
+                                                <Image src={bar} alt="Bar" width={100} height={40} />
+                                                <span className={styles.hovertxtpg2} id={styles.bars}>Icelandic bars</span>
                                             </div>
                                         </div>
                                     
@@ -150,8 +167,8 @@ export default function Onboarding() {
 
                                     <OnboardingWrapper heading="Sustainability">
                                         <p className={styles.subhead} >We want to encourage you to make new and more environmental friendly choices! </p>
-                                        <p className={styles.bodytxt} >Environmental sustainability is the ability to maintain an ecological balance in our planet's natural environment and conserve natural resources to support the wellbeing of current and future generations.</p>
-                                        <p className={styles.bodytxt} >When exploring we want you to walk or use sustainable transportation when exploring your surroundings, don’t litter and remember to respect the environment. </p>
+                                        <p className={styles.bodytxtsust} >Environmental sustainability is the ability to maintain an ecological balance in our planet's natural environment and conserve natural resources to support the wellbeing of current and future generations.</p>
+                                        <p className={styles.bodytxtsust} >When exploring we want you to walk or use sustainable transportation when exploring your surroundings, don’t litter and remember to respect the environment. </p>
                                         <p className={styles.bodytxtgreen} >There's no planet B</p>
 
                                        
@@ -161,8 +178,8 @@ export default function Onboarding() {
 
                                     </OnboardingStart>
 
-
-                                </div>
+                            {/* Making the dots for the page so they work when you turn a slide */}
+                                </div>          
                             </div>
                             {pageNumber < 4? (
 
@@ -186,7 +203,7 @@ export default function Onboarding() {
                         </div>
                     </div>
 
-                    <div className="blaze-pagination" ></div>
+                    {/* <div className="blaze-pagination" ></div> */}
 
                 </div>
 
