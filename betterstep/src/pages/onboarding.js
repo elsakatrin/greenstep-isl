@@ -84,8 +84,10 @@ export default function Onboarding() {
                                     <OnboardingWrapper heading="Explore new grounds">
                                         <Image className={styles.gameicon} src={exploreicon} alt="Explore example" width={115} height={48} />
 
-                                        <p className={styles.bodytxt}>When choosing explore you get to choose what kind of activity you want to do! You get a plan of your explorations, you can see the locations and information about all the interesting places you’re about to visit.
-                                            When you’ve finished exploring you get information about your accomplishments!</p>
+                                        <p className={styles.bodytxt}>This app will help you explore new grounds! Take a walk and see what your surroundings have to offer.
+                                        You'll get a map where you see icons that tell you what kind of places are nearby and information on them.
+                                        We encourage you to explore with sustainability in mind. All of the places in our app are sustainable and eco-friendly.
+                                        </p>
                                             <p className={styles.explain}>Click on the icons to see what they mean</p>
                                         <div className={styles.naviconscontainer}>
 

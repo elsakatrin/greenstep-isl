@@ -1,6 +1,6 @@
+//The white window under the slides
 .container {
   width: clamp(20px, 700px, 90vw);
-  // width: 324px;
   height: 39.7rem;
   border-radius: 20px;
   background-color: white;
@@ -8,20 +8,22 @@
   margin: auto;
   border-radius: 20px;
   border: 3px solid #e7eaea;
+  margin-top: 5rem;
+  
 }
 
 .modal {
   width: 20.5rem;
 }
-
+//Title for each slide
 .heading {
   font-size: 20px;
   text-align: center;
   margin-top: 3.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 4.7rem;
 }
 
-//For each icon to put inside the box
+//For each icon to put inside the box slide 2
 .icon {
   box-sizing: border-box;
   background-color: white;
@@ -36,6 +38,7 @@
     width: 100%;
   }
 }
+//For each icon inside box slide 1
 .navicon {
   box-sizing: border-box;
   background-color: white;
@@ -52,7 +55,7 @@
   }
 }
 
-//Container for all of the icons
+//Container for all of the icons for nav (slide 1)
 .naviconscontainer {
   display: flex;
   box-sizing: border-box;
@@ -61,7 +64,7 @@
   flex-direction: row;
   padding: 0.6rem;
 }
-
+//Container for icons (slide2)
 .iconscontainer {
   box-sizing: border-box;
   padding: 1rem;
@@ -72,21 +75,33 @@
   justify-content: center;
 
 }
-
+//Prev and forward btns for slides
 #prevbtn {
   background: none;
   border: none;
   padding: 0;
   font-size: 1em;
-
 }
 #forwardbtn {
   background: none;
   border: none;
   padding: 0;
   font-size: 1em;
-
+  float: right;
+  margin-left: 7rem;
+  margin-right: 7rem;
 }
+//Previous og forward buttons
+.buttoncontainer {
+  position: absolute;
+  margin-top: -5rem;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  z-index: auto;
+  gap: 5rem;
+}
+
 //Explore icon
 .gameicon {
   margin-top: 1.7rem;
@@ -96,6 +111,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+//All body text on slides except for sustainability slide
 .bodytxt {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -111,31 +127,16 @@
   margin-bottom: 1rem;
   font-size: 1rem;
 }
-//Click on icons to see what they mean
+//Click on icons to see what they mean text
 .explain{
   font-size: 0.7rem;
   margin-left: 1.25rem;
   margin-right: 1.25rem;
-  margin-top: -1.5rem;
-  margin-bottom: 1rem;
+  margin-top: -0.8rem;
+  margin-bottom: 0rem;
   text-align: left
 }
-//Previous og forward buttons
-.buttoncontainer {
-  position: absolute;
-  margin-top: -5rem;
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  z-index: auto;
-  gap: 5rem;
-}
 
-#forwardbtn {
-  float: right;
-  margin-left: 7rem;
-  margin-right: 7rem;
-}
 //Sub header 
 .subhead {
   font-size: 16px;
@@ -165,7 +166,6 @@
   transform: translateY(-2.5rem) translateX(8rem);
   position:absolute;
 }
-
 .dot {
   height: 9px;
   width: 9px;
@@ -173,6 +173,7 @@
   border-radius: 50%;
   display: inline-block;
 }
+//Dot gets dark on the page that it's on
 .dotdark {
   height: 9px;
   width: 9px;
@@ -181,17 +182,18 @@
   display: inline-block;
 }
 
+
+
+
 //CSS for the hover effect on the icons that reveal explainations of what the icons mean
 
-//Navbar icon explainations (page 1 onboarding)
+//Navbar icon explainations (slide 1 onboarding)
 .navicon:hover,.navicon:focus { 
   background-color: #627573; //Change the fill color when the div is hovered over 
   border: 3px solid #627573; 
 }
-
 .navicon:hover img + .hovertxt, .navicon:focus img + .hovertxt  {
   display: block; //Show the text when the div is hovered over
- 
 }
 .navicon:hover img, .navicon:focus img{
   display: none; //Makes icon dissapear on hover
@@ -215,7 +217,8 @@
   margin-bottom: 50%;
 }
 
-//Icons on page two of onboarding
+
+//Icons on slide two of onboarding
 .icon:hover, .icon:focus{ 
   background-color: #627573; //Change the fill color when the div is hovered over 
   border: 3px solid #627573; 
