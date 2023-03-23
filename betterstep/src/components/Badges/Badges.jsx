@@ -18,14 +18,8 @@ export default function Badges() {
           <Image src={badge} alt="Badge" width={115} height={70}/>
         </div>
         
-        <p className={styles.txt} >You don't have any badges yet, start exploring to earn your badge!</p>
+        <p className={styles.txtsm} >You don't have any badges yet, start exploring to earn your badge!</p>
         
-                {/* <ul>
-          <li>No</li>
-          <li>Badges</li>
-          <li>Yet</li>
-          <li>:P</li>
-        </ul> */}
       </div>
     </>
   )

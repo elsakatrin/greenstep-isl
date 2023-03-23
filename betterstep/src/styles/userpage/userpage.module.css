@@ -10,4 +10,30 @@
 .h1 {
   color: black;
   margin-bottom: 4rem;
-}/*# sourceMappingURL=userpage.module.css.map */
+}
+
+.logoplace {
+  margin-left: -15rem;
+  float: left;
+  display: flex;
+  justify-content: start;
+}
+
+.container {
+  width: clamp(20px, 700px, 90vw);
+  height: 34rem;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  margin: auto;
+  border-radius: 20px;
+  border: 3px solid #e7eaea;
+  margin-top: 1rem;
+}
+
+.h1 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

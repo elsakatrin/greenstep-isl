@@ -1,24 +1,22 @@
 import Layout from "@/components/Layout/Layout"
 import Button from "@/components/Button/Button"
 import Link from "next/link"
+import Logo from '@/components/Logo/Logo'
 import styles from "../../styles/userpage/userpage.module.css"
-// user management view?
+import Badges from "@/components/Badges/Badges"
+
 
 export default function User() {
     return (
         <>
             <Layout title="User">
-                <h1 className={styles.h1}>User</h1>
-                <Link className={styles.btntext} href="/user/settings">
-                    <Button className={styles.userbtn}>
-                        Settings
-                    </Button>
-                </Link>
-                <Link className={styles.btntext} href="/user/achievements">
-                    <Button className={styles.userbtn}>
-                        Achievements
-                    </Button>
-                </Link>
+                <div className={styles.logoplace}>
+            <Logo/>
+                </div>
+          <div className={styles.container}>
+          <h1 className={styles.h1}>This is your space!</h1>
+          <Badges />
+          </div>
 
             </Layout>
         </>
