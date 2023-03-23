@@ -48,7 +48,9 @@ export default function Navbar({ locations, setCenter }) {
         <nav className={styles.navigation}>
           {asPath && (
             <Link href="/mode">
-              <Button onClick={reload}>
+              <Button 
+              // onClick={reload}
+              >
                 <Image
                   src={globe}
                   alt="backgroundMap"
@@ -86,7 +88,7 @@ export default function Navbar({ locations, setCenter }) {
           {asPath !== "/user" && (
             <Link href="/user">
               <Button>
-                <Image src={user} alt="User profile" width={50} height={35} />
+                <Image src={user} alt="User profile" width={50} height={32} />
               </Button>
             </Link>
           )}
