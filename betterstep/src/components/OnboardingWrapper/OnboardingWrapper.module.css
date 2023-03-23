@@ -7,7 +7,7 @@
   margin: auto;
   border-radius: 20px;
   border: 3px solid #e7eaea;
-  margin-top: 5rem;
+  margin-top: 3.5rem;
 }
 
 .modal {
@@ -195,7 +195,6 @@
   display: none;
   color: #ffffff;
   font-size: 0.9rem;
-  display: flex;
   line-height: 1;
   justify-content: center;
   align-items: center;
@@ -214,6 +213,7 @@
 .icon:hover, .icon:focus {
   background-color: #627573;
   border: 3px solid #627573;
+  padding: 0;
 }
 
 .icon:hover img + .hovertxtpg2, .icon:focus img + .hovertxtpg2 {
@@ -233,21 +233,16 @@
   line-height: 1;
   justify-content: center;
   align-items: center;
-  margin-top: 30%;
+  margin-top: 40%;
   margin-bottom: 50%;
 }
 
-#shopping, #restaurants {
-  text-align: center;
-  margin-right: -1rem;
-}
-
 #museum {
-  margin-top: 6%;
+  margin-top: 20%;
   margin-bottom: 50%;
 }
 
 #bars {
-  margin-top: 18%;
+  margin-top: 30%;
   margin-bottom: 50%;
 }
