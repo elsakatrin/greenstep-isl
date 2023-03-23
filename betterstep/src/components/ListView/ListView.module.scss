@@ -1,56 +1,58 @@
 .listWrapper {
   position: relative;
   border: var(--border-modals);
-  background-color: var(--color-second-pale);
+  background-color: white;
   color: var(--color-prim-green);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   max-height: 85vh;
   overflow: scroll;
-  border: 2px solid red;
-  .list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 64px;
-  }
-
-  h2 {
-    margin-top: 2rem;
-    margin-left: 2rem;
-    position: relative;
-    color: black;
-    font-size: 18px;
-    font-weight: semibold;
-    margin-bottom: 20px;
-    z-index: 1;
-  }
-  .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    border-radius: 20px;
-    background-color: white;
-    max-width: 323px;
-    z-index: 1;
-  }
-  .image {
-    img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-top-right-radius: 20px;
-      border-top-left-radius: 20px;
-    }
-  }
-  h3 {
-    font-size: 16px;
-    color: var(--color-prim-green);
-  }
-
-  p {
-    font-size: 14px;
-  }
+}
+.listWrapper .list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  padding-bottom: 2rem;
+}
+.listWrapper h2 {
+  /* margin-top: 2rem; */
+  margin-top: 120px;
+  margin-left: 2rem;
+  position: relative;
+  color: black;
+  font-size: 18px;
+  font-weight: semibold;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+.listWrapper .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  border-radius: 20px;
+  background-color: white;
+  max-width: 323px;
+  z-index: 1;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.listWrapper .image img {
+  width: 100%;
+  height: 110px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.listWrapper h3 {
+  font-size: 16px;
+  color: var(--color-prim-green);
+}
+.listWrapper p {
+  font-size: 14px;
 }
 
 .listInfo {
@@ -61,8 +63,20 @@
   padding: 10px;
 }
 
+.description {
+  font-size: 12px;
+  color: var(--color-prim-green);
+  margin-top: 8px;
+  padding-bottom: 6px;
+}
+
+.type {
+  font-size: 14px;
+  color: var(--color-prim-green);
+}
+
 @media screen and (max-width: 768px) {
   .listWrapper ul li {
     flex-direction: column;
   }
-}
+} /*# sourceMappingURL=ListView.module.css.map */

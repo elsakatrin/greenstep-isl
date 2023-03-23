@@ -58,8 +58,16 @@ export default function ListView({ locations, handleListView, setCenter }) {
               />
             </div>
             <div className={styles.listInfo}>
-              <p>{location.sites_master.type_name}</p>
+              <p className={styles.type}>{location.sites_master.type_name}</p>
               <h3>{location.name}</h3>
+              {location.description
+                .split(". ")
+                .slice(0, 1)
+                .map((sentence, index) => (
+                  <p className={styles.description} key={index}>
+                    {sentence}.
+                  </p>
+                ))}
             </div>
           </div>
         ))}
