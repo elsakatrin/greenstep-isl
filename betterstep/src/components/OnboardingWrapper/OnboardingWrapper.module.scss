@@ -8,7 +8,7 @@
   margin: auto;
   border-radius: 20px;
   border: 3px solid #e7eaea;
-  margin-top: 5rem;
+  margin-top: 3.5rem;
   
 }
 
@@ -203,7 +203,6 @@
   display: none; // the text appears below and I tried to use !important to overwrite that but then the text doesnt appear while hovering
   color: #ffffff;
   font-size: 0.90rem;
-  display: flex;
   line-height: 1;
   justify-content: center;
   align-items: center;
@@ -221,7 +220,8 @@
 //Icons on slide two of onboarding
 .icon:hover, .icon:focus{ 
   background-color: #627573; //Change the fill color when the div is hovered over 
-  border: 3px solid #627573; 
+  border: 3px solid #627573;
+  padding: 0;
 }
 .icon:hover img + .hovertxtpg2, .icon:focus img + .hovertxtpg2 {
   display: block; //Show the text when the div is hovered over
@@ -238,19 +238,16 @@
   line-height: 1;
   justify-content: center;
   align-items: center;
-  margin-top: 30%;
+  margin-top: 40%;
   margin-bottom: 50%;
 }
-#shopping, #restaurants{ //These are not centering 
-  text-align: center;
-  margin-right: -1rem;
-}
+
 #museum {
-  margin-top: 6%;
+  margin-top: 20%;
   margin-bottom: 50%;
 }
 #bars{
-  margin-top: 18%;
+  margin-top: 30%;
   margin-bottom: 50%;
 }
 
