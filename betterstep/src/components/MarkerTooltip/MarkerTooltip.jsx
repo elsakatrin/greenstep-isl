@@ -28,7 +28,7 @@ export default function MarkerTooltip({ marker, callback }) {
         {mode && (
           <>
             <span>{marker.sites_master.type_name}</span>
-            <p>{marker.description}</p>
+            <p className={styles.description}>{marker.description}</p>
             <Image
               src={
                 "https://ssbptdtmzjjavisvxdpp.supabase.co/storage/v1/object/public/sites-photos/" +
@@ -40,20 +40,20 @@ export default function MarkerTooltip({ marker, callback }) {
               height={150}
             />
             <div className="buttonbox">
-              <Button onClick={handleAccept}>See Quest</Button>
-              <Button onClick={handleDecline}>Back</Button>
+              <Button onClick={handleAccept}>Take a picture</Button>
+              <Button onClick={handleDecline}>Back to map</Button>
             </div>
           </>
         )}
         {!mode && (
           <>
             <div className={styles.questBox}>
-              <h3>Quest</h3>
-              <span> Take picture at location</span>
+              <h3 className={styles.pictitle}>Take a picture</h3>
+              <span className={styles.pictext}>Snap a pic of your surroundings, capture the moment before it's gone and make memories that will last long!</span>
             </div>
             <CameraCapture />
-            <Button onClick={handleDecline}>Complete</Button>
-            <Button onClick={handleBack}>Back</Button>
+            <Button onClick={handleDecline}>OK, done!</Button>
+            <Button onClick={handleBack}>Not now</Button>
           </>
         )}
       </div>
