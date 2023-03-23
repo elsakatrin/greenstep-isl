@@ -11,7 +11,7 @@
 .tooltip {
   bottom: 3rem;
   width: clamp(20px, 700px, 90vw);
-  background-color: var(--color-second-pale);
+  background-color: white;
   color: var(--color-prim-green);
   display: flex;
   flex-direction: column;
@@ -21,6 +21,7 @@
   box-shadow: var(--box-shadow);
   padding: 0.6rem 0.75rem;
   gap: 1rem;
+  border: 3px solid #e7eaea;
 }
 
 .img {
@@ -40,6 +41,9 @@
   width: 100%;
   padding: 1rem;
   border-radius: var(--border-radius);
-  background-color: var(--color-prim-faded);
+  background-color: #f5f7f7;
   border: var(--border-modals);
+}
+.pictxt{
+  text-align: center;
 }
