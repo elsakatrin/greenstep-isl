@@ -8,7 +8,7 @@
 
 .heading {
   margin-top: 4rem;
-  color: black;
+  color: #3f4c4b;
   font-weight: 600;
   font-size: 1.5rem;
 }
@@ -35,8 +35,8 @@
   text-align: center;
   color: rgba(98, 117, 115, 1);
   line-height: 1.3rem;
-  margin-bottom: 0.7rem;
-  margin-top: 1.4rem;
+  margin-bottom: 0.9rem;
+  margin-top: 3rem;
 }
 .bodytxt {
   font-style: normal;
@@ -71,4 +71,20 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+.logoplace{
+  margin-left: -15rem;
+  float: left;
+  display: flex;
+  justify-content: start;
+  margin-bottom: -4rem;
+}
+.list{
+  margin-top: 1rem;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+}
+.listitem{
+  margin-top: 0.3rem;
+
 }
