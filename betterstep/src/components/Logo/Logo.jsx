@@ -1,17 +1,7 @@
 import { useState, useEffect } from "react";
-import styles from "./Logo.module.css";
 import Image from "next/image";
-import { Backdrop } from "./Backdrop/Backdrop";
-
-
-
-
-
-
-
-
-
-
+import logo from "../../public/logo-small.svg";
+import style from "./Logo.module.css"
 
 
 
@@ -29,9 +19,7 @@ import { Backdrop } from "./Backdrop/Backdrop";
 const Logo = () => {
     return ( 
         <>
-
-
-
+            <Image className={ style.styleme} src={logo} alt="logo" width={45} height={45}/>
         </>
      );
 }

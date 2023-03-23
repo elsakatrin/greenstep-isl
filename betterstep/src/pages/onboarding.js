@@ -25,6 +25,7 @@ import back from "../public/arrow-left-green.svg"
 import forward from "../public/arrow-right-green.svg"
 import earth from "../public/navicons/earth-icon.svg"
 import shopping from "../public/shopping.svg"
+import Logo from '@/components/Logo/Logo'
 
 
 
@@ -75,11 +76,11 @@ export default function Onboarding() {
         <>
             <Layout title="Onboarding">
                 <div className={styles.modal}>
+                                    <Logo/>
                     <div className="blaze-slider">
                         <div className="blaze-container">
                             <div className="blaze-track-container">
                                 <div className="blaze-track" id={styles.slidecontainer}>
-
 
                                     <OnboardingWrapper heading="Explore new grounds">
                                         <Image className={styles.gameicon} src={exploreicon} alt="Explore example" width={115} height={48} />
