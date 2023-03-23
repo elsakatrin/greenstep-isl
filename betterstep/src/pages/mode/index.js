@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from "../../styles/choosemode/choosemode.module.css"
 import Explore from './explore'
 
+
 export default function Choice() {
     function handleQuest() {
         alert('Quests are coming soon!')
